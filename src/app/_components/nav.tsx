@@ -1,6 +1,7 @@
 import React from 'react'
 import { ubuntu } from '~/lib/fonts'
 import { Button } from '~/styles/ui/button'
+import { ModeToggle } from './theme-toggle'
 
 export const Navbar = () => {
   return (
@@ -13,6 +14,7 @@ export const Navbar = () => {
             <Button>
                 Enter gallery
             </Button>
+            <ModeToggle/>
         </div>
     </div>
   )

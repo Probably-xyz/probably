@@ -1,6 +1,8 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/nav";
+import { ThemeProvider } from "./_components/theme-provider";
+
 
 export const metadata = {
   title: "Probably | Home",
@@ -14,11 +16,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="overflow-hidden">
         <TRPCReactProvider>
-          <Navbar/>
-          {children}
+          <ThemeProvider
+           attribute="class"
+           defaultTheme="system"
+           enableSystem
+           disableTransitionOnChange
+          >
+            <Navbar/>
+            {children}
+          </ThemeProvider>
         </TRPCReactProvider>
       </body>
     </html>
