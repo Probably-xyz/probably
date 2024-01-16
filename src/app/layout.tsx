@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Navbar } from "./_components/nav";
+import { Footer, Navbar } from "./_components/nav";
 import { ThemeProvider } from "./_components/theme-provider";
 
 
@@ -27,6 +27,7 @@ export default function RootLayout({
           >
             <Navbar/>
             {children}
+            <Footer/>
           </ThemeProvider>
         </TRPCReactProvider>
       </body>
