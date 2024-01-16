@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import { ubuntu } from '~/lib/fonts'
 import { Button } from '~/styles/ui/button'
@@ -6,7 +7,7 @@ import Link from 'next/link'
 
 export const Navbar = () => {
   return (
-    <div className="container flex justify-between py-12">
+    <div className="container flex justify-between py-5">
         <div>
             <h1 className="text-3xl" style={ubuntu.style}> Prbly </h1>
         </div>
@@ -21,8 +22,6 @@ export const Navbar = () => {
   )
 }
 
-
- 
 export const Footer = () => {
   return(
     <footer className="flex container flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-slate-300 py-6 text-center md:justify-between">
@@ -56,5 +55,15 @@ export const Footer = () => {
       </li>
     </ul>
   </footer>
+  )
+}
+
+export const Announcment = () => {
+  return(
+    <div className="w-screen flex items-center justify-center bg-prblyPrimary h-10">
+      <div className="mx-auto">
+          <h1 className="text-white font-normal text-sm" style={ubuntu.style}> We've officialy launched 🎉  </h1>
+      </div>
+    </div>
   )
 }

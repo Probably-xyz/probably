@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <main className=" min-h-[73vh] container flex">
-      <div className="max-w-3xl flex flex-col space-y-5 pt-36">
+      <div className="max-w-2xl flex flex-col space-y-5 pt-36">
         <div className="space-y-2">
           <MainHeader content="The place to get founded and funded"/>
           <SubHeader content="An invite only community where investors can fund startups and founders can showcase their projects."/>
