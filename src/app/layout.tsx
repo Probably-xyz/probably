@@ -1,12 +1,10 @@
 import "~/styles/globals.css";
-
-import { inter } from "~/lib/fonts";
-
 import { TRPCReactProvider } from "~/trpc/react";
+import { Navbar } from "./_components/nav";
 
 export const metadata = {
   title: "Probably | Home",
-  description: "Desc tbd",
+  description: "An invite only community where investors can fund startups and founders can showcase their projects.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -17,8 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+      <body className="overflow-hidden">
+        <TRPCReactProvider>
+          <Navbar/>
+          {children}
+        </TRPCReactProvider>
       </body>
     </html>
   );
