@@ -1,12 +1,16 @@
 import { unstable_noStore as noStore } from "next/cache";
-import { MainHeader, SubHeader } from "./_components/text-blocks";
+import { MainHeader, SubHeader } from "../_components/text-blocks";
 import { Button } from "~/styles/ui/button";
 
 export default async function Home() {
   noStore();
 
   return (
-    <main className=" min-h-[73vh] container flex">
+    <>
+    <div
+    className="-z-10 gridBg"
+    ></div>
+     <main className="min-h-[73vh] container flex">
       <div className="max-w-2xl flex flex-col space-y-5 pt-36">
         <div className="space-y-2">
           <MainHeader content="The place to get founded and funded"/>
@@ -19,6 +23,7 @@ export default async function Home() {
         </div>
       </div>
     </main>
+    </>
   );
 }
 

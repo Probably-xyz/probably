@@ -1,11 +1,11 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Footer, Navbar } from "./_components/nav";
-import { ThemeProvider } from "./_components/theme-provider";
+import { Footer, Navbar } from "../_components/nav";
+import { ThemeProvider } from "../_components/theme-provider";
 
 
 export const metadata = {
-  title: "Probably | Home",
+  title: "Probably",
   description: "An invite only community where investors can fund startups and founders can showcase their projects.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="overflow-hidden ">
+      <body className="">
         <TRPCReactProvider>
           <ThemeProvider
            attribute="class"
@@ -25,10 +25,6 @@ export default function RootLayout({
            enableSystem
            disableTransitionOnChange
           >
-            <div
-  className=" -z-10 gridBg"
-></div>
-            {/* <Announcment/> */}
             <Navbar/>
             {children}
             <Footer/>
