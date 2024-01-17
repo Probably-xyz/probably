@@ -12,9 +12,11 @@ export default async function Home() {
           <MainHeader content="The place to get founded and funded"/>
           <SubHeader content="An invite only community where investors can fund startups and founders can showcase their projects."/>
         </div>
-        <Button className="py-7 text-xl">
-          Enter gallery
-        </Button>
+        <div>
+          <Button size="lg">
+            Enter gallery
+          </Button>
+        </div>
       </div>
     </main>
   );
