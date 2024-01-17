@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Announcment, Footer, Navbar } from "./_components/nav";
+import { Footer, Navbar } from "./_components/nav";
 import { ThemeProvider } from "./_components/theme-provider";
 
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="overflow-hidden">
+      <body className="overflow-hidden ">
         <TRPCReactProvider>
           <ThemeProvider
            attribute="class"
@@ -25,7 +25,10 @@ export default function RootLayout({
            enableSystem
            disableTransitionOnChange
           >
-            <Announcment/>
+            <div
+  className=" -z-10 gridBg"
+></div>
+            {/* <Announcment/> */}
             <Navbar/>
             {children}
             <Footer/>

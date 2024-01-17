@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export const Navbar = () => {
   return (
-    <div className="container flex justify-between py-5">
+    <div className="container flex justify-between py-12">
         <div>
             <h1 className="text-3xl" style={ubuntu.style}> Prbly </h1>
         </div>
