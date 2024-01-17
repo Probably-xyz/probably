@@ -1,5 +1,5 @@
 import { unstable_noStore as noStore } from "next/cache";
-import { MainHeader, SubHeader } from "../../_components/text-blocks";
+import { MainHeader, SubHeader } from "~/_components/text-blocks";
 import { Button } from "~/styles/ui/button";
 
 export default async function Home() {
