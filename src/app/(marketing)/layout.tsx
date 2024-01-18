@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Footer, Navbar } from "~/_components/nav";
 import { ThemeProvider } from "~/_components/theme-provider";
+import { GridGradient } from "~/_components/bg-comps";
 
 
 export const metadata = {
@@ -19,16 +20,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="">
         <TRPCReactProvider>
-          <ThemeProvider
-           attribute="class"
-           defaultTheme="system"
-           enableSystem
-           disableTransitionOnChange
-          >
-            <Navbar/>
-            {children}
-            <Footer/>
-          </ThemeProvider>
+            <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            >
+              <GridGradient/>
+              <Navbar/>
+              {children}
+              <Footer/>
+            </ThemeProvider>
         </TRPCReactProvider>
       </body>
     </html>

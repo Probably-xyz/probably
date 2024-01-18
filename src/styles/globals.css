@@ -75,11 +75,3 @@
   }
 }
 
-.gridBg {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-  background-size: 20px 20px;
-}
