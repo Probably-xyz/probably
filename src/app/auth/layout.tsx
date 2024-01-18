@@ -1,11 +1,11 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Navbar } from "./_components/nav";
-import { ThemeProvider } from "./_components/theme-provider";
+import { ThemeProvider } from "~/_components/theme-provider";
+import { HalfGrid } from "~/_components/bg-comps";
 
 
 export const metadata = {
-  title: "Probably | Home",
+  title: "Probably",
   description: "An invite only community where investors can fund startups and founders can showcase their projects.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
@@ -19,15 +19,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="overflow-hidden">
         <TRPCReactProvider>
-          <ThemeProvider
-           attribute="class"
-           defaultTheme="system"
-           enableSystem
-           disableTransitionOnChange
-          >
-            <Navbar/>
-            {children}
-          </ThemeProvider>
+            <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            >
+              <HalfGrid/>
+              {children}
+            </ThemeProvider>
         </TRPCReactProvider>
       </body>
     </html>

@@ -6,7 +6,8 @@ import {
 } from "next-auth";
 // import DiscordProvider from "next-auth/providers/discord";
 import Github from "next-auth/providers/github";
-
+import GoogleProvider from "next-auth/providers/google"
+import EmailProvider from "next-auth/providers/email";
 import { env } from "~/env";
 import { db } from "~/server/db";
 
@@ -51,6 +52,23 @@ export const authOptions: NextAuthOptions = {
     Github({
       clientId: env.GITHUB_CLIENT_ID,
       clientSecret: env.GITHUB_CLIENT_SECRET
+    }),
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET
+    }),
+    EmailProvider({
+      server: {
+        host: env.SMTP_HOST,
+        // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
+        port: parseInt(process.env.SMTP_PORT as string, 10),
+        secureConnection: true,
+        auth: {
+          user: env.SMTP_USER,
+          pass: env.SMTP_PASSWORD,
+        },
+      },
+      from: env.EMAIL_FROM,
     })
     /**
      * ...add more providers here.
@@ -62,6 +80,9 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  // pages: {
+  //   signIn: "auth/login",
+  // }
 };
 
 /**
