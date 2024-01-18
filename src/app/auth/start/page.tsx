@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getServerSession } from "next-auth";
 import { authOptions as options } from "~/server/auth";
+import Link from "next/link";
 
 const ProfilePage = async () => {
   const session = await getServerSession(options);
@@ -22,6 +23,10 @@ const ProfilePage = async () => {
           />
         ) : null}
       </div>
+
+      <Link href="/">
+        Back 
+      </Link>
     </div>
   );
 };

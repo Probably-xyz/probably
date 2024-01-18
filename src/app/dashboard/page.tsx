@@ -1,17 +1,19 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 const SignInButton = () => {
   return (
     <>
-     <button
+    <button
       className="bg-slate-600 px-4 py-2 text-white"
-      onClick={() => signIn()}
+      onClick={() => signOut({ callbackUrl: "/" })}
       type="button"
     >
-      Sign In
+      Sign Out of GitHub
     </button>
+
+    
     </>
   );
 };
