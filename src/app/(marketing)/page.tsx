@@ -18,11 +18,11 @@ export default async function Home() {
           <SubHeader content="An invite only community where investors can fund startups and founders can showcase their projects."/>
         </div>
         <div>
-          <Link href="/dashboard">
+          
             <Button size="lg">
               Enter gallery
             </Button>
-          </Link>
+         
         </div>
       </div>
     </main>
