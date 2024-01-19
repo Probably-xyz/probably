@@ -23,16 +23,6 @@ const Mainfesto = () => {
             A message by Probably.
             </p>
         </div>
-
-
-        {/* <div className="md:w-[46%] mx-auto pt-12">
-            <h1 className="text-left text-prblyPrimary font-medium text-base" style={ubuntu.style}> Our Promise Points </h1>
-            <ul className="list-disc mt-3 ml-8">
-                <li className="md:text-base text-xs font-light text-slate-600">No Ghosting</li>
-                <li className="md:text-base text-xs font-light text-slate-600">No forcing founders to pay any fee</li>
-                <li className="md:text-base text-xs font-light text-slate-600">No taking extra equity from founders</li>
-            </ul>
-        </div> */}
     </div>
   )
 }
