@@ -23,7 +23,7 @@ export const XlHeader = ({content}: TextProps) => {
 
 export const XlSub = ({content}: TextProps) => {
     return (
-        <p className="text-lg text-slate-600 text-center" style={inter.style}> 
+        <p className="text-lg text-slate-500 dark:text-slate-200 text-center" style={inter.style}> 
             {content}
         </p>
     )
@@ -31,7 +31,7 @@ export const XlSub = ({content}: TextProps) => {
 
 export const SubHeader = ({content}: TextProps) => {
     return (
-        <p className="text-lg text-slate-400 text-left" style={inter.style}> 
+        <p className="text-lg text-slate-500 dark:text-slate-200 text-left" style={inter.style}> 
             {content}
         </p>
     )

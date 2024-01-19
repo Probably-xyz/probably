@@ -1,21 +1,18 @@
-"use client";
+import { redirect } from "next/navigation";
+import { getServerAuthSession } from "~/server/auth";
 
-import { signOut } from "next-auth/react";
+export default async function SignInButton ()  {
+  const session = await getServerAuthSession()
 
-const SignInButton = () => {
-  return (
-    <>
-    <button
-      className="bg-slate-600 px-4 py-2 text-white"
-      onClick={() => signOut({ callbackUrl: "/" })}
-      type="button"
-    >
-      Sign Out of GitHub
-    </button>
-
-    
-    </>
-  );
+  if (!session){
+      redirect("/auth/login")
+  }
+  if(session){
+    return (
+      <>
+        <h1> Hello {session?.user.email} </h1>
+      </>
+    );
+  }
 };
 
-export default SignInButton;

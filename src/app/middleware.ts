@@ -7,7 +7,7 @@ export default withAuth(
     const token = await getToken({ req })
     const isAuth = !!token
     const isAuthPage =
-      req.nextUrl.pathname.startsWith("/auth/login/")
+      req.nextUrl.pathname.startsWith("/auth/login")
 
     if (isAuthPage) {
       if (isAuth) {
@@ -43,5 +43,5 @@ export default withAuth(
 )
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/auth/login", "/dashboard"],
+  matcher: ["/dashboard/:path*", "/dashboard"],
 }

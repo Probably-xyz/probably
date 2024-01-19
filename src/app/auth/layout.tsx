@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
 import { HalfGrid } from "~/_components/bg-comps";
-import { Footer } from "~/_components/nav";
+import { Footer, Navbar } from "~/_components/nav";
 
 
 export const metadata = {
@@ -26,7 +26,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             >
-              <HalfGrid/>
+              <Navbar/>
+              {/* <HalfGrid/> */}
               {children}
               <Footer/>
             </ThemeProvider>
