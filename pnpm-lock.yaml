@@ -56,6 +56,9 @@ dependencies:
   framer-motion:
     specifier: ^10.18.0
     version: 10.18.0(react-dom@18.2.0)(react@18.2.0)
+  lucide-react:
+    specifier: ^0.312.0
+    version: 0.312.0(react@18.2.0)
   next:
     specifier: ^14.0.4
     version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
@@ -74,6 +77,9 @@ dependencies:
   react-email:
     specifier: 1.10.1
     version: 1.10.1
+  react-icons:
+    specifier: ^5.0.1
+    version: 5.0.1(react@18.2.0)
   server-only:
     specifier: ^0.0.1
     version: 0.0.1
@@ -6081,6 +6087,14 @@ packages:
     dependencies:
       yallist: 4.0.0
 
+  /lucide-react@0.312.0(react@18.2.0):
+    resolution: {integrity: sha512-3UZsqyswRXjW4t+nw+InICewSimjPKHuSxiFYqTshv9xkK3tPPntXk/lvXc9pKlXIxm3v9WKyoxcrB6YHhP+dg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /map-obj@1.0.1:
     resolution: {integrity: sha512-7N/q3lyZ+LVCp7PzuxrJr4KMbBE2hW7BT7YNia330OFxIf4d3r5zVpicP2650l7CPN6RM9zOJRl3NGpqSiw3Eg==}
     engines: {node: '>=0.10.0'}
@@ -6774,6 +6788,14 @@ packages:
       tree-cli: 0.6.7
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /react-icons@5.0.1(react@18.2.0):
+    resolution: {integrity: sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is@16.13.1:
