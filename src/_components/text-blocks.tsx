@@ -15,7 +15,7 @@ export const MainHeader = ({content}: TextProps) => {
 
 export const XlHeader = ({content}: TextProps) => {
     return (
-        <h1 className="text-7xl font-medium text-center leading-tight" style={ubuntu.style}> 
+        <h1 className="text-6xl font-medium text-center leading-tight" style={ubuntu.style}> 
             {content}
         </h1>
   )
@@ -23,7 +23,7 @@ export const XlHeader = ({content}: TextProps) => {
 
 export const XlSub = ({content}: TextProps) => {
     return (
-        <p className="text-xl text-slate-400 text-center" style={inter.style}> 
+        <p className="text-lg text-slate-600 text-center" style={inter.style}> 
             {content}
         </p>
     )

@@ -29,9 +29,11 @@ export const Navbar = () => {
 export const Footer = () => {
   return(
     <footer className="flex container flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-slate-300 py-10 text-center md:justify-between">
-    <h1 className="text-slate-400">
-      &copy; 2024 Probably
-    </h1>
+    <Link href="/">
+      <h1 className="text-slate-400">
+        &copy; 2024 Probably
+      </h1>
+    </Link>
     <ul className="flex flex-wrap items-center gap-x-8">
       <li>
         <Link

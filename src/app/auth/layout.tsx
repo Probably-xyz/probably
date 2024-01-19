@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
 import { HalfGrid } from "~/_components/bg-comps";
+import { Footer } from "~/_components/nav";
 
 
 export const metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
             >
               <HalfGrid/>
               {children}
+              <Footer/>
             </ThemeProvider>
         </TRPCReactProvider>
       </body>
