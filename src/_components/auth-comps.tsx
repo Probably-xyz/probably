@@ -8,16 +8,16 @@ import { Label } from '~/styles/ui/label';
 
 export const GoogleBtn = () => {
   return (
-    <Button className="w-full" size="lg">
+    <Button size="lg" variant="outline">
      <FaGoogle className="mr-2 h-4 w-4 my-auto"/>
-      with Google
+      Google
     </Button>
   )
 }
 
 export const GithubBtn = () => {
   return (
-    <Button className="w-full" size="lg" variant="outline">
+    <Button size="lg" variant="outline">
       <FaGithub className="mr-2 h-4 w-4"/>
       Github
     </Button>
@@ -66,7 +66,7 @@ export const AuthForm = () => {
   </div>
   <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t" />
+          <span className="w-full border-t border-prblyPrimary" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
           <span className="bg-background px-2 text-muted-foreground">
@@ -74,7 +74,10 @@ export const AuthForm = () => {
           </span>
         </div>
       </div>
-     <GithubBtn/>
+      <div className="space-y-4 flex flex-col">
+        <GithubBtn/>
+        <GoogleBtn/>
+      </div>
     </div>
   )
 }

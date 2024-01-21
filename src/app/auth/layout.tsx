@@ -1,8 +1,8 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
-import { Footer, Navbar } from "~/_components/nav";
 import { Toaster } from 'sonner'
+import { HalfGrid } from "~/_components/bg-comps";
 
 
 export const metadata = {
@@ -27,9 +27,9 @@ export default function RootLayout({
             disableTransitionOnChange
             >
               <Toaster/>
-              <Navbar/>
+              <HalfGrid/>
               {children}
-              <Footer/>
+             
             </ThemeProvider>
         </TRPCReactProvider>
       </body>

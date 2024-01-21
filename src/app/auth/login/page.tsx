@@ -1,29 +1,33 @@
-import { AuthForm, GithubBtn, GoogleBtn, SigninEmail } from "~/_components/auth-comps";
-import { GridGradient, HalfGrid } from "~/_components/bg-comps";
+import { ChevronLeftIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { AuthForm } from "~/_components/auth-comps";
 import { ubuntu } from "~/lib/fonts";
 import { getServerAuthSession } from "~/server/auth";
 
 export default async function SignInButton() {
   const session = await getServerAuthSession()
   return (
-    <>
-      <HalfGrid/>
-      <div className="container flex flex-col mx-auto items-center justify-center min-h-[75vh]">
-          <div className="justify-center items-center">
-              <h1 className="text-4xl text-center mb-10" style={ubuntu.style}>
-                Login to Probably
-              </h1>
-              
-              {/* <div className="w-[400px] space-y-4 flex flex-col">
-                <SigninEmail/>
-                <div className="w-[350px border-t border-neutral-900 items-center justify-center">
-                </div>
-                <span className='mx-auto'> or </span>
-                <GoogleBtn/>
-                <GithubBtn/>
-              </div> */}
-              <AuthForm/>
-          </div>
+    <>      
+     <div className="container flex h-screen w-screen flex-col items-center justify-center">
+      <Link
+        href="/"
+        className="absolute left-4 top-4 md:left-8 md:top-8">
+        <>
+          <ChevronLeftIcon className="mr-2 h-4 w-4" />
+          Back
+        </>
+      </Link>
+      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[360px]">
+        <div className="flex flex-col space-y-2 text-center">
+          <h1 className="text-2xl font-semibold tracking-tight">
+            Welcome back
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Enter your email to sign in to your account
+          </p>
+        </div>
+        <AuthForm/>
+      </div>
       </div>
     </>
   );
