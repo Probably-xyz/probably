@@ -94,11 +94,9 @@ export async function TopDashNav({title}: TitleProp) {
           <div className="flex items-center gap-2 font-semibold">
               <span className="my-auto text-xl" style={ubuntu.style}> {title} </span>
           </div>
-          <div className="flex items-center font-semibold">
+          <div className="flex items-center gap-2 ">
             <UserAvatar initials={init[0]} image={session?.user.image as string} name={name} email={session?.user.email as string} id={''}/>
           </div>
-          
-
       </div>
     </div>
   )

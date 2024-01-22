@@ -25,7 +25,6 @@ import {
   DropdownMenuTrigger,
 } from "~/styles/ui/dropdown-menu"
 import { signOut } from "next-auth/react"
-import { ModeToggle } from "./theme-toggle"
 
 
 export function SideBar() {
@@ -56,7 +55,7 @@ export function SideBar() {
               >
                 <RocketIcon className="w-4 h-4"/>
                 The Founder's club
-                <Badge variant="secondary" className="text-[10px]"> Soon </Badge>
+                <Badge variant="secondary" className="text-[10px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
@@ -64,7 +63,7 @@ export function SideBar() {
               >
                 <Crosshair2Icon className="w-4 h-4"/>
                 The Investor's club
-                <Badge variant="secondary" className="text-[10px]"> Soon </Badge>
+                <Badge variant="secondary" className="text-[10px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
@@ -120,7 +119,7 @@ export function UserAvatar({initials, image, name, email, id}: UserDetails) {
   return (
       <>
         <DropdownMenu>
-      <DropdownMenuTrigger asChild className="my-auto">
+      <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8 outline outline-prblyPrimary">
             <AvatarImage src={image} alt={name} />
