@@ -27,7 +27,7 @@ export default function RootLayout({
             disableTransitionOnChange
             >
               <Toaster/>
-              <HalfGrid/>
+              
               {children}
              
             </ThemeProvider>
