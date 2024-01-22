@@ -1,14 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 "use client";
 
 import { Button } from '~/styles/ui/button'
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Input } from '~/styles/ui/input';
-import { Label } from '~/styles/ui/label';
-
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -26,10 +20,10 @@ export default function LoginForm() {
   const [clickedEmail, setClickedEmail] = useState(false);
   const [clickedSSO, setClickedSSO] = useState(false);
 
-  // useEffect(() => {
-  //   const error = searchParams?.get("error");
-  //   error && toast.error(error);
-  // }, [searchParams]);
+  useEffect(() => {
+    const error = searchParams?.get("error");
+    error && toast.error(error);
+  }, [searchParams]);
 
   return (
     <>
@@ -108,8 +102,6 @@ export const GoogleBtn = () => {
 }
 
 export const GithubBtn = () => {
-  const searchParams = useSearchParams();
-  // const next = searchParams?.get("next");
 
   return (
     <Button size="lg" variant="outline" onClick={() => { signIn("github", {}) }}>

@@ -2,7 +2,7 @@
 import React from 'react'
 import { HalfGrid } from '~/_components/bg-comps'
 import { XlHeader, XlSub } from '~/_components/text-blocks'
-import { FounderCard, InvestorCard } from '~/_components/type-cards'
+import { FounderCard, InvestorCard } from '~/_components/cards'
 
 const GettingStarted = () => {
   return (
