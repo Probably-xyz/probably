@@ -4,6 +4,7 @@ import { ubuntu } from '~/lib/fonts'
 import { Button } from '~/styles/ui/button'
 import { ModeToggle } from './theme-toggle'
 import Link from 'next/link'
+import { UserAvatar } from './dashboard'
 
 export const Navbar = () => {
   return (
@@ -72,4 +73,27 @@ export const Announcment = () => {
       </div>
     </div>
   )
+}
+
+
+export interface TitleProp {
+  title: string,
+}
+
+export const TopDashNav = ({title}: TitleProp) => {
+  return (
+    <div className="flex flex-col gap-2 justify-between">
+      <div className="flex h-[60px] max-w-screen-xl justify-between items-center px-6 pb-10 pt-14 border-b">
+          <div className="flex items-center gap-2 font-semibold">
+              <span className="my-auto text-xl" style={ubuntu.style}> {title} </span>
+          </div>
+          <div className="flex items-center font-semibold">
+            <UserAvatar/>
+          </div>
+          
+
+      </div>
+    </div>
+  )
+ 
 }

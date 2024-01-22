@@ -14,33 +14,37 @@ import {
   } from '@react-email/components';
   import * as React from 'react';
   
-  interface RaycastMagicLinkEmailProps {
+  interface MagicLinkEmailProps {
     magicLink?: string;
   }
   
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
-    : '';
+    : 'http://localhost:3000';
   
-  export const RaycastMagicLinkEmail = ({
+    console.log(baseUrl)
+
+  export const MagicLinkEmail = ({
     magicLink = 'https://raycast.com',
-  }: RaycastMagicLinkEmailProps) => (
+  }: MagicLinkEmailProps) => (
     <Html>
       <Head />
       <Preview>Log in with this magic link.</Preview>
       <Body style={main}>
         <Container style={container}>
+          <Link href="https://prbly.xyz">
           <Img
-            src={`${baseUrl}/static/raycast-logo.png`}
-            width={48}
-            height={48}
-            alt="Raycast"
+            src={`${baseUrl}/5.png`}
+            width={58}
+            height={58}
+            alt="Probably"
           />
+          </Link>
           <Heading style={heading}>🪄 Your magic link</Heading>
           <Section style={body}>
             <Text style={paragraph}>
               <Link style={link} href={magicLink}>
-                👉 Click here to sign in 👈
+                Sign in
               </Link>
             </Text>
             <Text style={paragraph}>
@@ -48,30 +52,29 @@ import {
             </Text>
           </Section>
           <Text style={paragraph}>
-            Best,
-            <br />- Raycast Team
+            An email <br/> By Probably
           </Text>
           <Hr style={hr} />
           <Img
-            src={`${baseUrl}/static/raycast-logo.png`}
-            width={32}
-            height={32}
+            src={`${baseUrl}/5.png`}
+            width={38}
+            height={38}
             style={{
               WebkitFilter: 'grayscale(100%)',
               filter: 'grayscale(100%)',
               margin: '20px 0',
             }}
           />
-          <Text style={footer}>Raycast Technologies Inc.</Text>
-          <Text style={footer}>
+          <Text style={footer}>  &copy; 2024 Probably</Text>
+          {/* <Text style={footer}>
             2093 Philadelphia Pike #3222, Claymont, DE 19703
-          </Text>
+          </Text> */}
         </Container>
       </Body>
     </Html>
   );
   
-  export default RaycastMagicLinkEmail;
+  export default MagicLinkEmail;
   
   const main = {
     backgroundColor: '#ffffff',
@@ -103,7 +106,7 @@ import {
   };
   
   const link = {
-    color: '#FF6363',
+    color: '#5D31FF',
   };
   
   const hr = {

@@ -1,7 +1,6 @@
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 import { MainHeader, SubHeader } from "~/_components/text-blocks";
-import { InvestorCard } from "~/_components/type-cards";
 import { Button } from "~/styles/ui/button";
 
 export default async function Home() {
