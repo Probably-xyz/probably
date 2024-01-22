@@ -97,7 +97,8 @@ export const authOptions: NextAuthOptions = {
      */
   ],
   pages: {
-    error: "auth/login"
+    error: "/auth/login",
+    newUser: "/auth/welcome",
   }
 };
 

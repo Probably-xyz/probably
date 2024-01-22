@@ -115,10 +115,12 @@ interface UserDetails {
   id?: string
 }
 
+
+
 export function UserAvatar({initials, image, name, email, id}: UserDetails) {
   return (
       <>
-        <DropdownMenu>
+      <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8 outline outline-prblyPrimary">

@@ -1,11 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { ubuntu } from "~/lib/fonts";
-import {
-  ChevronDownIcon,
-  CircleIcon,
-  PlusIcon,
-  StarIcon,
-} from "@radix-ui/react-icons"
 import { Button } from "~/styles/ui/button"
 import {
   Card,
@@ -14,16 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "~/styles/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "~/styles/ui/dropdown-menu"
-import { Separator } from "~/styles/ui/separator"
 import Image from "next/image"
 import Link from "next/link";
 import { Badge } from "~/styles/ui/badge";

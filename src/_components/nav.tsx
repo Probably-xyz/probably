@@ -86,10 +86,12 @@ export interface TitleProp {
 export async function TopDashNav({title}: TitleProp) {
   const session = await getServerAuthSession()
   const name = `${session?.user.name}`
-  const init = name.split(" ")
-
-  return (
-    <div className="flex flex-col gap-2 justify-between">
+  const email = `${session?.user.email}`
+  if (name === null) {
+     const init = email.split("")
+     console.log("made it helloooo")
+     return (
+      <div className="flex flex-col gap-2 justify-between">
       <div className="flex h-[60px] max-w-screen-xl justify-between items-center px-6 pb-10 pt-14 border-b">
           <div className="flex items-center gap-2 font-semibold">
               <span className="my-auto text-xl" style={ubuntu.style}> {title} </span>
@@ -99,6 +101,22 @@ export async function TopDashNav({title}: TitleProp) {
           </div>
       </div>
     </div>
-  )
+     )
+  }else {
+    const init = name.split('')
+    return (
+      <div className="flex flex-col gap-2 justify-between">
+      <div className="flex h-[60px] max-w-screen-xl justify-between items-center px-6 pb-10 pt-14 border-b">
+          <div className="flex items-center gap-2 font-semibold">
+              <span className="my-auto text-xl" style={ubuntu.style}> {title} </span>
+          </div>
+          <div className="flex items-center gap-2 ">
+            <UserAvatar initials={init[0]} image={session?.user.image as string} name={name} email={session?.user.email as string} id={''}/>
+          </div>
+      </div>
+    </div>
+      )
+  }
+  
  
 }

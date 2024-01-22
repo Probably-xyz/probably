@@ -11,7 +11,6 @@ import { toast } from "sonner";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const next = searchParams?.get("next");
   const [showEmailOption, setShowEmailOption] = useState(false);
   const [showSSOOption, setShowSSOOption] = useState(false);
   const [noSuchAccount, setNoSuchAccount] = useState(false);
@@ -21,10 +20,10 @@ export default function LoginForm() {
   const [clickedSSO, setClickedSSO] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    const error = searchParams?.get("error");
-    error && toast.error(error);
-  }, [searchParams]);
+  // useEffect(() => {
+  //   const error = searchParams?.get("error");
+  //   error && toast.error(error);
+  // }, [searchParams]);
 
   return (
     <>
@@ -38,7 +37,6 @@ export default function LoginForm() {
                 signIn("email", {
                   email,
                   redirect: false,
-                  ...(next && next.length > 0 ? { callbackUrl: next } : {}),
                 }).then((res) => {
                   setClickedEmail(false);
                   if (res?.ok && !res?.error) {
