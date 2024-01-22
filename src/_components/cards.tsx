@@ -109,14 +109,14 @@ export const StartupCard = () => {
     <Card className="hover:shadow-md rounded-md">
     <div className="flex items-center space-x-1">
           <Badge  className="px-7 text-sm font-normal mx-auto flex items-center justify-center bg-prblyPrimary">
-            Looking for VC Firm, and more
+            Looking for VC Firm or Angel
           </Badge>
       </div>
     <CardHeader className="grid  items-start gap-4 space-y-0">
       <div className="space-y-2">
         <div className='flex space-x-2'>
           <Image src="/5.png" width={30} height={30} alt=""/>
-          <CardTitle style={ubuntu.style} className="my-auto"> Prbly <span className="text-sm text-neutral-500 font-normal ml-2"> Founded 2022 </span></CardTitle>
+          <CardTitle style={ubuntu.style} className="my-auto"> Prbly.xyz <span className="text-sm text-neutral-500 font-normal ml-2"> Founded 2022 </span></CardTitle>
         </div>
         <CardDescription>
         An invite only community where investors can fund startups and founders can showcase their projects.
@@ -128,14 +128,17 @@ export const StartupCard = () => {
       
       <div className="flex space-x-4 text-sm text-muted-foreground">
         <Badge variant="secondary" className="flex items-center">
-          Series B
+          Seed
+        </Badge>
+        <Badge variant="secondary" className="flex items-center">
+          Fintech
         </Badge>
         <Badge variant="outline">
         🇱🇧 LB
         </Badge>
         <div className="flex items-center text-prblyPrimary">
           <FaDollarSign className="h-3 w-3" />
-          200k
+          750k
         </div>
       </div>
     </CardContent>
