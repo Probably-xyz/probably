@@ -2,7 +2,7 @@
 "use client";
 
 import { Button } from '~/styles/ui/button'
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaSpinner } from "react-icons/fa";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -19,6 +19,7 @@ export default function LoginForm() {
   const [clickedGoogle, setClickedGoogle] = useState(false);
   const [clickedEmail, setClickedEmail] = useState(false);
   const [clickedSSO, setClickedSSO] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const error = searchParams?.get("error");
@@ -29,26 +30,27 @@ export default function LoginForm() {
     <>
       <GoogleBtn />
       <GithubBtn/>
-      
       <form
         onSubmit={async (e) => {
           e.preventDefault();
           setClickedEmail(true);
-          
+          setIsLoading(true)
                 signIn("email", {
                   email,
                   redirect: false,
-                  
+                  ...(next && next.length > 0 ? { callbackUrl: next } : {}),
                 }).then((res) => {
                   setClickedEmail(false);
                   if (res?.ok && !res?.error) {
                     setEmail("");
                     toast.success("Email sent - check your inbox!");
+                    setIsLoading(false)
                   } else {
                     toast.error("Error sending email - try again?");
+                    setIsLoading(false)
                   }
                 });
-              } 
+          } 
         }
         className="flex flex-col space-y-3"
       >
@@ -83,9 +85,9 @@ export default function LoginForm() {
               setShowEmailOption(true);
             },
           })}
-          disabled={clickedGoogle || clickedSSO}
+          disabled={clickedGoogle || clickedSSO || isLoading}
         >
-          Continue with email
+          {isLoading ? <FaSpinner className="animate-spin"/> : "Continue with email" }
         </Button>
       </form>
     </>

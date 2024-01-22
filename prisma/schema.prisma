@@ -14,18 +14,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
-
-    @@index([name])
-}
-
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -61,7 +49,8 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    posts         Post[]
+    investor      Investor[]
+    founder       Founder[]
 }
 
 model VerificationToken {
@@ -71,3 +60,52 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+
+model Founder {
+    id          String      @id @default(cuid())
+    name        String?
+    email       String?
+    image       String?
+    bio         String?
+    startups    Startup[]
+
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId    String 
+}
+
+
+model Investor {
+    id          String      @id @default(cuid())
+    name        String?
+    email       String?
+    image       String?
+    bio         String?
+
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId    String 
+}
+
+model Startup {
+    id          String  @id @default(cuid())
+    name        String
+    logo        String
+    tagline     String
+    summary     String
+    industry    String
+    stage       String
+    goal        String
+    lookingFor  String
+    pitch       String
+    linkedin    String?
+    website     String?
+    otherSocial String?
+
+    fileExtra   String?
+    extraTwo    String?
+
+    createdBy     Founder     @relation(fields: [id], references: [id], onDelete: Cascade)
+    founderId     String 
+
+}
+    
