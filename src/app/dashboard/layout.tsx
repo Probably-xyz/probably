@@ -1,8 +1,10 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
-import { Footer } from "~/_components/nav";
-import Component from "~/_components/dashboard";
+import { ubuntu } from "~/lib/fonts";
+import Link from "next/link";
+import { SideBar, UserAvatar } from "~/_components/dashboard";
+import { GridGradient } from "~/_components/bg-comps";
 
 
 
@@ -27,9 +29,14 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             >
-              <Component/>
-              {children}
-              <Footer/>
+            
+        <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+            <SideBar/>
+              <main className="flex flex-col p-8 space-y-8 max-w-screen-2xl">
+                {children}
+              </main>
+        </div>
+
             </ThemeProvider>
         </TRPCReactProvider>
       </body>
