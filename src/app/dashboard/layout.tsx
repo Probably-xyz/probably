@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
 import { Footer } from "~/_components/nav";
+import Component from "~/_components/dashboard";
 
 
 
@@ -26,6 +27,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             >
+              <Component/>
               {children}
               <Footer/>
             </ThemeProvider>

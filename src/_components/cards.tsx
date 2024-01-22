@@ -58,14 +58,14 @@ export const InvestorCard = () => {
 
 export const CompleteProfile = () => {
   return(
-    <div className="relative max-w-[270px] h-[260px] mb-72">
+    <div className="relative w-[220px] h-[260px] mt-12 mx-auto">
       <div className='absolute top-0 flex w-full justify-center'>
         <div className='left-0 h-[1.5px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-prblyPrimary to-[rgba(17,17,17,0)] transition-all duration-1000' />
         <div className='right-0 h-[1.5px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-prblyPrimary to-[rgba(17,17,17,0)] transition-all duration-1000' />
       </div>
       <div className='flex flex-col h-full px-5 py-6 rounded-md border border-slate-300 bg-neutral-50 dark:bg-neutral-900'>
         <h1 className="text-3xl mb-2 font-medium text-left leading-tight dark:text-neutral-100" style={ubuntu.style}> 
-           The Investor's Club
+          The Investor's Club
         </h1>
         <p className="text-sm text-neutral-600 dark:text-neutral-200">
           Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
