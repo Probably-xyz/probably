@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
+/* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import { ubuntu } from '~/lib/fonts'
@@ -5,6 +7,7 @@ import { Button } from '~/styles/ui/button'
 import { ModeToggle } from './theme-toggle'
 import Link from 'next/link'
 import { UserAvatar } from './dashboard'
+import { getServerAuthSession } from '~/server/auth'
 
 export const Navbar = () => {
   return (
@@ -80,7 +83,11 @@ export interface TitleProp {
   title: string,
 }
 
-export const TopDashNav = ({title}: TitleProp) => {
+export async function TopDashNav({title}: TitleProp) {
+  const session = await getServerAuthSession()
+  const name = `${session?.user.name}`
+  const init = name.split(" ")
+
   return (
     <div className="flex flex-col gap-2 justify-between">
       <div className="flex h-[60px] max-w-screen-xl justify-between items-center px-6 pb-10 pt-14 border-b">
@@ -88,7 +95,7 @@ export const TopDashNav = ({title}: TitleProp) => {
               <span className="my-auto text-xl" style={ubuntu.style}> {title} </span>
           </div>
           <div className="flex items-center font-semibold">
-            <UserAvatar/>
+            <UserAvatar initials={init[0]} image={session?.user.image as string} name={name} email={session?.user.email as string} id={''}/>
           </div>
           
 

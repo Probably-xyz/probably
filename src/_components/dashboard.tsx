@@ -24,6 +24,9 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "~/styles/ui/dropdown-menu"
+import { signOut } from "next-auth/react"
+import { ModeToggle } from "./theme-toggle"
+
 
 export function SideBar() {
   return (
@@ -106,11 +109,11 @@ export function SideBar() {
 }
 
 interface UserDetails {
-  initials: string,
-  image: string,
-  name: string,
-  email: string,
-  id: string
+  initials?: string,
+  image?: string,
+  name?: string,
+  email?: string,
+  id?: string
 }
 
 export function UserAvatar({initials, image, name, email, id}: UserDetails) {
@@ -119,7 +122,7 @@ export function UserAvatar({initials, image, name, email, id}: UserDetails) {
         <DropdownMenu>
       <DropdownMenuTrigger asChild className="my-auto">
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
+          <Avatar className="h-8 w-8 outline outline-prblyPrimary">
             <AvatarImage src={image} alt={name} />
             <AvatarFallback> {initials} </AvatarFallback>
           </Avatar>
@@ -140,19 +143,19 @@ export function UserAvatar({initials, image, name, email, id}: UserDetails) {
             Profile
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            Billing
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
+          <Link href="/">   
+          <DropdownMenuItem className="cursor-pointer">
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>New Team</DropdownMenuItem>
+          </Link>
+          <Link href="/">   
+            <DropdownMenuItem className="cursor-pointer"> Back to home  </DropdownMenuItem> 
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Log out
+        <DropdownMenuItem className="cursor-pointer" onClick={() => signOut()} >
+          Log out 
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
