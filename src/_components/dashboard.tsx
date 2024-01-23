@@ -115,8 +115,6 @@ interface UserDetails {
   id?: string
 }
 
-
-
 export function UserAvatar({initials, image, name, email, id}: UserDetails) {
   return (
       <>
