@@ -12,6 +12,7 @@ import Image from "next/image"
 import Link from "next/link";
 import { Badge } from "~/styles/ui/badge";
 import { FaDollarSign } from "react-icons/fa";
+import { CreateFounder } from "./create-account";
 
 
 export const FounderCard = () => {
@@ -28,9 +29,7 @@ export const FounderCard = () => {
           Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
         </p>
         <div className='flex space-x-4 mt-5'>
-          <Button size="lg">
-            Join
-          </Button>
+          <CreateFounder/>
           <Button variant="ghost" size="lg">
             Read more
           </Button>
