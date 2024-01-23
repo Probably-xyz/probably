@@ -19,11 +19,11 @@ export const Navbar = () => {
         </div>
 
         <div className="flex space-x-5">
-            <Link href="/manifesto">
-              <Button variant="outline" className="my-auto">
-                  Mainfesto
-              </Button>
-            </Link>
+            <Link href="/dashboard">
+            <Button className="my-auto">
+              Get started
+            </Button>
+          </Link>  
             <ModeToggle/>
         </div>
     </div>
@@ -40,27 +40,40 @@ export const Footer = () => {
     </Link>
     <ul className="flex flex-wrap items-center gap-x-8">
       <li>
-        <Link
-          href="https://x.com"
-          className="font-normal transition-colors hover:text-prblyPrimary"
+      <Link
+          href="https://github.com"
+          className=""
         >
-          X
+          <Button variant="ghost" className="my-auto">
+            X
+          </Button>
         </Link>
       </li>
       <li>
-        <Link
-          href="https://linkedin.com"
-          className="font-normal transition-colors hover:text-prblyPrimary"
+      <Link
+          href="https://github.com"
+          className=""
         >
-          linkedin
+          <Button variant="ghost" className="my-auto">
+            Linkedin
+          </Button>
         </Link>
       </li>
       <li>
         <Link
           href="https://github.com"
-          className="font-normal transition-colors hover:text-prblyPrimary"
+          className=""
         >
-          github
+          <Button variant="ghost" className="my-auto">
+            Github
+          </Button>
+        </Link>
+      </li>
+      <li>
+        <Link href="/manifesto">
+            <Button variant="ghost" className="my-auto">
+              Mainfesto
+            </Button>
         </Link>
       </li>
     </ul>
