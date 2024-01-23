@@ -30,3 +30,26 @@ export function CreateFounder() {
     </form>
   );
 }
+
+export function CreateInvestor() {
+  const router = useRouter();
+
+  const createInvestor = api.investor.create.useMutation({
+    onSuccess: () => {
+      toast.success("Account created - enjoy")
+      router.refresh();
+    },
+  });
+
+  return (
+    <form onSubmit={() => { createInvestor.mutate()}}>
+      <Button
+        type="submit"
+        size="lg"
+        disabled={createInvestor.isLoading}
+      >
+        {createInvestor.isLoading ? <FaSpinner className="animate-spin"/> : "Join"}
+      </Button>
+    </form>
+  );
+}
