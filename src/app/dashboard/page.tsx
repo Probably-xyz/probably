@@ -14,17 +14,9 @@ export default async function SignInButton ()  {
   if(session){
     return (
       <>
-        <TopDashNav title="Gallery"/>
-        <div className="flex space-x-8">
-            <StartupCard/>
-            <StartupCard/>
-            <StartupCard/>
-          </div>
-          <div className="flex space-x-8">
-            <StartupCard/>
-            <StartupCard/>
-            <StartupCard/>
-          </div>
+              <TopDashNav title="Home"/>
+
+       <h1> Hello {session?.user.name} </h1>
       </>
     );
   }

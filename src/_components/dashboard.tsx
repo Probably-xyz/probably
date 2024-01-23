@@ -7,7 +7,7 @@ import { Badge } from "~/styles/ui/badge"
 import Image from "next/image"
 import { Separator } from "~/styles/ui/separator"
 import { CompleteProfile } from "./cards"
-import { Crosshair2Icon, ExternalLinkIcon, GearIcon, ImageIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons"
+import { Crosshair2Icon, ExternalLinkIcon, GearIcon, HomeIcon, ImageIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons"
 import {
   Avatar,
   AvatarFallback,
@@ -34,18 +34,27 @@ export function SideBar() {
           <div className="flex h-[60px] items-center px-6 pb-10 pt-14">
             <Link className="flex items-center gap-2 font-semibold" href="/">
               <Image src="/5.png" width={40} height={40} alt={"Prbly-Logo"} className="my-auto"/>
-              <span className="my-auto text-xl" style={ubuntu.style}> Prbly </span>
+              <span className="my-auto text-xl" style={ubuntu.style}> Prbly - Investor </span>
             </Link>
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-4 text-sm font-medium space-y-2">
+            <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                href="/dashboard/"
+              >
+                <HomeIcon className="h-4 w-4"/>
+                
+                Home
+                {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center bg-prblyPrimary">12</Badge> */}
+              </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
                 href="/dashboard/gallery"
               >
                 <ImageIcon className="h-4 w-4"/>
                 
-                The Gallery
+                Gallery
                 <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center bg-prblyPrimary">12</Badge>
               </Link>
               <Link
@@ -54,7 +63,7 @@ export function SideBar() {
                 href=""
               >
                 <RocketIcon className="w-4 h-4"/>
-                The Founder's club
+                Founder's club
                 <Badge variant="secondary" className="text-[10px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
               </Link>
               <Link
@@ -62,7 +71,7 @@ export function SideBar() {
                 href="#"
               >
                 <Crosshair2Icon className="w-4 h-4"/>
-                The Investor's club
+                Investor's club
                 <Badge variant="secondary" className="text-[10px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
               </Link>
               <Link
@@ -70,7 +79,7 @@ export function SideBar() {
                 href="#"
               >
                 <PersonIcon className="h-4 w-4"/>
-                My profile
+                Profile
                 <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center bg-prblyPrimary">3</Badge>
               </Link>
               <Link

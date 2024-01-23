@@ -23,13 +23,16 @@ export function PreviewCard(){
                     <Badge variant="secondary" className="flex items-center">
                     Seed
                     </Badge>
+                    <Badge variant="secondary" className="flex items-center">
+                    AI
+                    </Badge>
                     <Badge variant="outline">
                         🇱🇧 LB
                     </Badge>
-                    <div className="flex items-center text-prblyPrimary">
+                    {/* <div className="flex items-center text-prblyPrimary">
                         <FaDollarSign className="h-3 w-3" />
                         750k
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </Card>

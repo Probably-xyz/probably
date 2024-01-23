@@ -1,13 +1,13 @@
 "use client"
 import React from 'react'
-import { HalfGrid } from '~/_components/bg-comps'
+import { GridGradient, HalfGrid } from '~/_components/bg-comps'
 import { XlHeader, XlSub } from '~/_components/text-blocks'
 import { FounderCard, InvestorCard } from '~/_components/cards'
 
 const GettingStarted = () => {
   return (
     <> 
-    <HalfGrid/>
+      <GridGradient/>
      <main className="container flex flex-col pt-28">
         <div className="flex flex-col mx-auto">
           <XlHeader content="Welcome to Probably"/>
