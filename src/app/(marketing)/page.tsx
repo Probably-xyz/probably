@@ -1,7 +1,6 @@
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
-import { StartupCard } from "~/_components/cards";
-import { PreviewCard } from "~/_components/startups-preview";
+import { PreviewCardOne, PreviewCardThree, PreviewCardTwo } from "~/_components/startups-preview";
 import { MainHeader, SubHeader } from "~/_components/text-blocks";
 import { Button } from "~/styles/ui/button";
 
@@ -17,15 +16,15 @@ export default async function Home() {
           <SubHeader content="Submit your startup and showcase it to a group of investors, it’s that easy."/>
         </div>
       </div>
-      <div className='flex flex-col relative right-24 justify-center space-y-4'>
+      <div className='flex flex-col relative right-16 justify-center space-y-4'>
           <div className="relative">
-            <PreviewCard/>
+            <PreviewCardOne/>
           </div>
           <div className="relative right-5">
-            <PreviewCard/>
+            <PreviewCardTwo/>
           </div>  
           <div className="relative right-10">
-            <PreviewCard/>
+            <PreviewCardThree/>
           </div>  
           {/* <div className="w-[400px] h-[100px] bg-neutral-200 blur-sm relative right-14">
           </div> */}
