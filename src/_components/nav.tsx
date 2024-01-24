@@ -102,8 +102,7 @@ export async function TopDashNav({title}: TitleProp) {
   const email = `${session?.user.email}`
   if (name === null) {
      const init = email.split("")
-     console.log("made it helloooo")
-     return (
+      return (
       <div className="flex flex-col gap-2 justify-between">
       <div className="flex h-[60px] max-w-screen-xl justify-between items-center px-6 pb-10 pt-14 border-b">
           <div className="flex items-center gap-2 font-semibold">

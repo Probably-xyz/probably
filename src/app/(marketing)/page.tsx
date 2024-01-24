@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 import { PreviewCardOne, PreviewCardThree, PreviewCardTwo } from "~/_components/startups-preview";
@@ -10,13 +11,13 @@ export default async function Home() {
   return (
     <>
      <main className="min-h-[73vh] container flex justify-between">
-      <div className="max-w-3xl flex flex-col pt-36 justify-between">
+      <div className="lg:max-w-lg flex flex-col lg:pt-44 justify-between">
         <div className="space-y-3">
           <MainHeader content="The place to get founded and funded"/>
           <SubHeader content="Submit your startup and showcase it to a group of investors, it’s that easy."/>
         </div>
       </div>
-      <div className='flex flex-col relative right-16 justify-center space-y-4'>
+      <div className='flex flex-col relative lg:right-10 justify-center space-y-4'>
           <div className="relative">
             <PreviewCardOne/>
           </div>

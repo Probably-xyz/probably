@@ -92,6 +92,9 @@ dependencies:
   react:
     specifier: 18.2.0
     version: 18.2.0
+  react-countdown:
+    specifier: ^2.3.5
+    version: 2.3.5(react-dom@18.2.0)(react@18.2.0)
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
@@ -7592,7 +7595,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: true
 
   /proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
@@ -7614,6 +7616,17 @@ packages:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
     dependencies:
       safe-buffer: 5.2.1
+    dev: false
+
+  /react-countdown@2.3.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-K26ENYEesMfPxhRRtm1r+Pf70SErrvW3g4CArLi/x6MPFjgfDFYePT4UghEj8p2nI0cqVV7/JjDgjyr//U60Og==}
+    peerDependencies:
+      react: '>= 15'
+      react-dom: '>= 15'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-dom@18.2.0(react@18.2.0):
@@ -7707,7 +7720,6 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: true
 
   /react-remove-scroll-bar@2.3.4(@types/react@18.2.37)(react@18.2.0):
     resolution: {integrity: sha512-63C4YQBUt0m6ALadE9XV56hV8BgJWDmmTPY758iIJjfQKt2nYwoUrPk0LXRXcB/yIj82T1/Ixfdpdk68LwIB0A==}
