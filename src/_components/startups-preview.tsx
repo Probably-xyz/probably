@@ -187,7 +187,7 @@ export function PreviewCardThree(){
                     <div className="flex justify-between">
                         <div className='flex space-x-2 mb-3'>
                             <Image className='my-auto' src="/8.png" width={50} height={50} alt={''}/>
-                            <h1 className="my-auto text-lg" style={ubuntu.style}> Savii - <span className="text-sm text-neutral-400"> Founded 2022 </span></h1>
+                            <h1 className="my-auto text-lg" style={ubuntu.style}> Savii - <span className="text-sm text-neutral-400"> Founded 2021 </span></h1>
                         </div>
                         <DialogTrigger asChild>
                             <HamburgerMenuIcon className="w-5 h-5 my-auto cursor-pointer"/>
@@ -213,7 +213,7 @@ export function PreviewCardThree(){
                     <h1 style={ubuntu.style} className="my-auto text-neutral-600 mb-1">
                         Helping gen z become financially fearless                    
                     </h1>
-                    <span className="text-sm my-auto text-neutral-500 font-normal"> Founded 2022 </span>
+                    <span className="text-sm my-auto text-neutral-500 font-normal"> Founded 2021 </span>
                 </div>
                 <Separator/>
                 <div className="p-5 flex justify-between max-w-4xl">
