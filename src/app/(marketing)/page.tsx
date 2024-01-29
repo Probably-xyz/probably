@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <>
      <main className="min-h-[73vh] container flex justify-between">
-      <div className="lg:max-w-lg flex flex-col lg:pt-44 justify-between">
+      <div className="max-w-3xl flex flex-col pt-36 justify-between">
         <div className="space-y-3">
           <MainHeader content="The place to get founded and funded"/>
           <SubHeader content="Submit your startup and showcase it to a group of investors, it’s that easy."/>

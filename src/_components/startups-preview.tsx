@@ -13,7 +13,7 @@ import { Separator } from '~/styles/ui/separator'
 export function PreviewCardOne(){
     return (
         <Dialog>     
-            <Card className="rounded-md hover:shadow-lg transition-all ease-in lg:w-[340px]">
+            <Card className="rounded-md hover:shadow-lg transition-all ease-in w-[430px]">
                 <div className="flex flex-col px-4 py-3 space-y-4">
                     <div className="flex justify-between">
                         <div className='flex space-x-2'>
@@ -97,7 +97,7 @@ export function PreviewCardOne(){
 export function PreviewCardTwo(){
     return (
         <Dialog>     
-            <Card className="rounded-md hover:shadow-lg transition-all ease-in lg:w-[340px]">
+            <Card className="rounded-md hover:shadow-lg transition-all ease-in w-[430px]">
                 <div className="flex flex-col px-4 py-3 space-y-4">
                     <div className="flex justify-between">
                         <div className='flex space-x-2'>
@@ -182,7 +182,7 @@ export function PreviewCardTwo(){
 export function PreviewCardThree(){
     return (
         <Dialog>     
-            <Card className="rounded-md hover:shadow-lg transition-all ease-in lg:w-[340px]">
+            <Card className="rounded-md hover:shadow-lg transition-all ease-in w-[430px]">
                 <div className="flex flex-col px-4 py-4 space-y-4">
                     <div className="flex justify-between">
                         <div className='flex space-x-2 mb-3'>
