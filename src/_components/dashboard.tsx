@@ -30,7 +30,6 @@ import { signOut } from "next-auth/react"
 import { usePathname } from "next/navigation"
 import { cn } from "~/lib/utils"
 import { toast } from "sonner"
-import { DashToggle } from "./theme-toggle"
 
 export function SideBar() {
   const path = usePathname()
@@ -59,8 +58,6 @@ export function SideBar() {
                 <HomeIcon className="h-[14px] w-[14px]"/>
                 Home
               </Link>
-              
-           
               <Link
                 className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/gallery") ? "bg-neutral-100" : "bg-transparent")}
                 href="/dashboard/gallery"
@@ -89,7 +86,7 @@ export function SideBar() {
               </Link>
               <Link
                 className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/profile") ? "bg-neutral-100" : "bg-transparent")}
-                href="#"
+                href="/dashboard/profile"
               >
                 <PersonIcon className="h-[14px] w-[14px]"/>
                 Profile

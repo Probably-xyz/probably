@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Badge } from "~/styles/ui/badge";
 import { FaDollarSign } from "react-icons/fa";
 import { CreateFounder, CreateInvestor } from "./create-account";
+import { Progress } from "~/styles/ui/progress";
 
 
 export const FounderCard = () => {
@@ -66,18 +67,23 @@ export const InvestorCard = () => {
 
 export const CompleteProfile = () => {
   return(
-    <div className="relative w-[190px] h-[260px] mt-12 mx-auto">
+    <div className="relative w-[200px] mt-12 mx-auto">
       <div className='absolute top-0 flex w-full justify-center'>
         <div className='left-0 h-[1.5px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-prblyPrimary to-[rgba(17,17,17,0)] transition-all duration-1000' />
         <div className='right-0 h-[1.5px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-prblyPrimary to-[rgba(17,17,17,0)] transition-all duration-1000' />
       </div>
-      <div className='flex flex-col h-full px-5 py-6 rounded-md border border-slate-300 bg-neutral-50 dark:bg-neutral-900'>
-        <h1 className="text-lg mb-2 font-medium text-left leading-tight dark:text-neutral-100" style={ubuntu.style}> 
-          Complete your profile
+      <div className='flex flex-col h-full px-5 py-10 rounded-md border border-slate-300 bg-neutral-50 dark:bg-neutral-900'>
+        <h1 className="text-lg mb-[6px] font-medium text-left leading-tight dark:text-neutral-100" style={ubuntu.style}> 
+          Almost there!
         </h1>
-        <p className="text-sm text-neutral-600 dark:text-neutral-200">
-          Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
+        <p className="text-sm text-neutral-600 dark:text-neutral-200 mb-6 font-normal">
+          Complete your profile to prbly get access to all features
         </p>
+        <div className='flex'>
+          <Progress value={55} className=""/>
+          <span className="relative bottom-[-2px] right-10 text-sm font-light"> %55 </span>
+        </div>
+        
       </div>
   </div>
   );
