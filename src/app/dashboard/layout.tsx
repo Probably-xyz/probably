@@ -5,6 +5,7 @@ import { SideBar } from "~/_components/dashboard";
 import { Toaster } from "sonner";
 import { getServerAuthSession } from "~/server/auth";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 
 
 
@@ -38,7 +39,9 @@ export default async function RootLayout({
           <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[235px_1fr]">
             <SideBar/>
               <main className="flex flex-col p-8 space-y-8 max-w-screen-2xl">
-                {children}
+                <Suspense>
+                  {children}
+                </Suspense>
               </main>
           </div>
 

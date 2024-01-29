@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable react/no-unescaped-entities */
@@ -93,7 +94,7 @@ export const Announcment = () => {
 
 
 export interface TitleProp {
-  title: string,
+  title: any,
 }
 
 export async function TopDashNav({title}: TitleProp) {

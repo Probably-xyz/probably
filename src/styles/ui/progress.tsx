@@ -18,10 +18,13 @@ const Progress = React.forwardRef<
     )}
     {...props}
   >
+             
+
     <ProgressPrimitive.Indicator
-      className="h-full w-full flex-1 bg-green-500 transition-all"
+      className={cn("h-full w-full flex-1 shadow-inner transition-all", value > 45 ? "bg-green-400" : value < 30 ? " bg-red-500" : "bg-yellow-500")}
       style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
     />
+     <span className="relative bottom-[-2px] right-10 text-sm font-light inline"> {value} </span>
    
   </ProgressPrimitive.Root>
 ))

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 import { ubuntu } from "~/lib/fonts";
 import { Button } from "~/styles/ui/button"
@@ -14,6 +15,7 @@ import { Badge } from "~/styles/ui/badge";
 import { FaDollarSign } from "react-icons/fa";
 import { CreateFounder, CreateInvestor } from "./create-account";
 import { Progress } from "~/styles/ui/progress";
+import Confetti from "react-confetti"
 
 
 export const FounderCard = () => {
@@ -65,7 +67,12 @@ export const InvestorCard = () => {
   );
 }
 
-export const CompleteProfile = () => {
+
+
+export const CompleteProfile = ({progress}: any) => {
+
+  const value = progress as number
+
   return(
     <Link href="dashboard/profile/">
     <div className="relative w-[200px] mt-12 mx-auto">
@@ -81,12 +88,12 @@ export const CompleteProfile = () => {
           Complete your profile to prbly get access to all features
         </p>
         <div className='flex'>
-          <Progress value={55} className=""/>
-          <span className="relative bottom-[-2px] right-10 text-sm font-light"> %55 </span>
+          <Progress value={value} className=""/>
+          <span className="relative bottom-[-2px] right-10 text-sm font-light"> %{value} </span>
         </div>
         
       </div>
-  </div>
+    </div>
     </Link>
   );
 }

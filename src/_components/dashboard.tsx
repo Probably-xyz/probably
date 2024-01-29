@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-implied-eval */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable react/no-unescaped-entities */
 "use client"
 
 import Link from "next/link"
-import React from "react"
+import React, { useState } from "react"
 import { ubuntu } from "~/lib/fonts"
 import { Badge } from "~/styles/ui/badge"
 import Image from "next/image"
@@ -30,8 +32,10 @@ import { signOut } from "next-auth/react"
 import { usePathname } from "next/navigation"
 import { cn } from "~/lib/utils"
 import { toast } from "sonner"
+import ReactConfetti from "react-confetti"
 
 export function SideBar() {
+  const [isDone, setIsDone] = useState(false)
   const path = usePathname()
 
   function copyFunc() {
@@ -39,6 +43,7 @@ export function SideBar() {
     toast.success("Email copied to clipboard")
   }
 
+  const prog = 10
   return (
       <div className="hidden border-r lg:block dark:bg-gray-800/40">
         <div className="flex flex-col">
@@ -94,7 +99,7 @@ export function SideBar() {
               </Link>
               <Link
                 className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/settings") ? "bg-neutral-100" : "bg-transparent")}
-                href="#"
+                href="/dashboard/settings"
               >
                 <GearIcon className="h-[14px] w-[14px]"/>
                 Settings
@@ -125,11 +130,12 @@ export function SideBar() {
               </span>
             </nav>
             <div className="grid items-start px-4 text-sm font-medium space-y-3"> 
-              <CompleteProfile/>
+              <CompleteProfile progress={prog}/>
             </div>
             {/* <DashToggle/> */}
           </div>
         </div>
+        {/* { isDone ?? <ReactConfetti/> } */}
       </div>
   )
 }

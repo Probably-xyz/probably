@@ -93,20 +93,33 @@ export default function LoginForm() {
 }
 
 export const GoogleBtn = () => {
+  const [isLoading, setIsLoading] = useState(false)
   return (
-    <Button size="lg" variant="outline" onClick={() => { signIn("google", {}) }}>
-     <FaGoogle className="mr-2 h-4 w-4 my-auto"/>
-     Continue with Google
+    <Button size="lg" variant="outline" disabled={isLoading} onClick={() => { 
+      setIsLoading(true)
+      signIn("google") 
+      }}>
+      
+      {isLoading ? <FaSpinner className="animate-spin mr-2"/> : <FaGoogle className="mr-2 h-4 w-4"/> }
+      Continue with Google
+
     </Button>
   )
 }
 
 export const GithubBtn = () => {
 
+  const [isLoading, setIsLoading] = useState(false)
+
   return (
-    <Button size="lg" variant="outline" onClick={() => { signIn("github", {}) }}>
-      <FaGithub className="mr-2 h-4 w-4"/>
+    <Button size="lg" variant="outline" disabled={isLoading} onClick={() => { 
+      setIsLoading(true)
+      signIn("github") 
+      }}>
+      
+      {isLoading ? <FaSpinner className="animate-spin mr-2"/> : <FaGithub className="mr-2 h-4 w-4"/> }
       Continue with Github
+
     </Button>
   )
 }
