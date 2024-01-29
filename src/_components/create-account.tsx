@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { toast } from "sonner";
 import { Button } from "~/styles/ui/button";
@@ -9,12 +8,10 @@ import { Button } from "~/styles/ui/button";
 import { api } from "~/trpc/react";
 
 export function CreateFounder() {
-  const router = useRouter();
 
   const createFounder = api.founder.create.useMutation({
     onSuccess: () => {
       toast.success("Account created - enjoy")
-      router.refresh();
     },
   });
 

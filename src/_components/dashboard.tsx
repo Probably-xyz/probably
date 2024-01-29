@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable react/no-unescaped-entities */
 "use client"
+
 import Link from "next/link"
 import React from "react"
 import { ubuntu } from "~/lib/fonts"
@@ -25,91 +27,110 @@ import {
   DropdownMenuTrigger,
 } from "~/styles/ui/dropdown-menu"
 import { signOut } from "next-auth/react"
-
+import { usePathname } from "next/navigation"
+import { cn } from "~/lib/utils"
+import { toast } from "sonner"
+import { DashToggle } from "./theme-toggle"
 
 export function SideBar() {
+  const path = usePathname()
+
+  function copyFunc() {
+    navigator.clipboard.writeText("hello@prbly.xyz")
+    toast.success("Email copied to clipboard")
+  }
+
   return (
       <div className="hidden border-r lg:block dark:bg-gray-800/40">
-        <div className="flex flex-col gap-2">
-          <div className="flex h-[60px] items-center px-6 pb-10 pt-14">
+        <div className="flex flex-col">
+          <div className="flex h-[60px] items-center px-6 pb-12 pt-14">
             <Link className="flex items-center gap-2 font-semibold" href="/">
-              <Image src="/5.png" width={40} height={40} alt={"Prbly-Logo"} className="my-auto"/>
-              <span className="my-auto text-xl" style={ubuntu.style}> Prbly - Investor </span>
+              <Image src="/5.png" width={30} height={30} alt={"Prbly-Logo"} className="my-auto"/>
+              <span className="my-auto text-lg font-normal" style={ubuntu.style}> Prbly <span className="text-prblyPrimary text-sm my-auto"> (investor) </span>  </span>
             </Link>
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-4 text-sm font-medium space-y-2">
-            <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+            <nav className="grid items-start px-4 text-sm font-normal space-y-4">
+            
+              <Link
+                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path === "/dashboard" ? "bg-neutral-100" : "bg-transparent")}
                 href="/dashboard/"
               >
-                <HomeIcon className="h-4 w-4"/>
-                
+                <HomeIcon className="h-[14px] w-[14px]"/>
                 Home
-                {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center bg-prblyPrimary">12</Badge> */}
               </Link>
+              
+           
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/gallery") ? "bg-neutral-100" : "bg-transparent")}
                 href="/dashboard/gallery"
               >
-                <ImageIcon className="h-4 w-4"/>
+                <ImageIcon className="h-[14px] w-[14px]"/>
                 
                 Gallery
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center bg-prblyPrimary">12</Badge>
+                <Badge className="ml-auto flex h-4 w-4 shrink-0 items-center justify-center bg-prblyPrimary">12</Badge>
               </Link>
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50 pointer-events-none opacity-50", path.startsWith("/dashboard/founders") ? "bg-neutral-100" : "bg-transparent")}
                 aria-disabled={true}
                 href=""
               >
-                <RocketIcon className="w-4 h-4"/>
-                Founder's club
-                <Badge variant="secondary" className="text-[10px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
+                <RocketIcon className="h-[14px] w-[14px]"/>
+                Founders
+                <Badge variant="secondary" className="text-[8px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
               </Link>
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50 pointer-events-none opacity-50", path.startsWith("/dashboard/investors") ? "bg-neutral-100" : "bg-transparent")}
                 href="#"
               >
-                <Crosshair2Icon className="w-4 h-4"/>
-                Investor's club
-                <Badge variant="secondary" className="text-[10px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
+                <Crosshair2Icon className="h-[14px] w-[14px]"/>
+                Investors
+                <Badge variant="secondary" className="text-[8px] ml-auto flex shrink-0 items-center justify-center"> Soon </Badge>
               </Link>
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/profile") ? "bg-neutral-100" : "bg-transparent")}
                 href="#"
               >
-                <PersonIcon className="h-4 w-4"/>
+                <PersonIcon className="h-[14px] w-[14px]"/>
                 Profile
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center bg-prblyPrimary">3</Badge>
+                <Badge className="ml-auto flex h-4 w-4 shrink-0 items-center justify-center bg-prblyPrimary">3</Badge>
               </Link>
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/settings") ? "bg-neutral-100" : "bg-transparent")}
                 href="#"
               >
-                <GearIcon className="h-4 w-4" />
+                <GearIcon className="h-[14px] w-[14px]"/>
                 Settings
               </Link>
             </nav>
             <Separator className="w-10/12 mx-auto my-5"/>
-            <nav className="grid items-start px-4 text-sm font-medium space-y-3">
+            <nav className="grid items-start px-4 text-sm font-normal space-y-4">
             <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
                 href="#"
               >
-                <ExternalLinkIcon className="w-4 h-4"/>
+                <ExternalLinkIcon className="h-[14px] w-[14px]"/>
                 Twitter / X
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
                 href="#"
               >
-                <ExternalLinkIcon className="w-4 h-4"/>
+                <ExternalLinkIcon className="h-[14px] w-[14px]"/>
                 Linkedin
               </Link>
+              <span
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50 cursor-pointer"
+                onClick={() => copyFunc()}
+              >
+                <ExternalLinkIcon className="h-[14px] w-[14px]"/>
+                Contact us
+              </span>
             </nav>
             <div className="grid items-start px-4 text-sm font-medium space-y-3"> 
               <CompleteProfile/>
             </div>
+            {/* <DashToggle/> */}
           </div>
         </div>
       </div>
@@ -136,7 +157,7 @@ export function UserAvatar({initials, image, name, email, id}: UserDetails) {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-56 mt-2" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none"> {name} </p>

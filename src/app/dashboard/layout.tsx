@@ -1,10 +1,10 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
-import { ubuntu } from "~/lib/fonts";
-import Link from "next/link";
-import { SideBar, UserAvatar } from "~/_components/dashboard";
-import { GridGradient } from "~/_components/bg-comps";
+import { SideBar } from "~/_components/dashboard";
+import { Toaster } from "sonner";
+import { getServerAuthSession } from "~/server/auth";
+import { redirect } from "next/navigation";
 
 
 
@@ -14,11 +14,16 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerAuthSession()
+
+  if (!session){
+      redirect("/auth/login")
+  }
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="overflow-hidden">
@@ -29,13 +34,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             >
-            
-        <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+          <Toaster richColors position="top-center"/>
+          <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[235px_1fr]">
             <SideBar/>
               <main className="flex flex-col p-8 space-y-8 max-w-screen-2xl">
                 {children}
               </main>
-        </div>
+          </div>
 
             </ThemeProvider>
         </TRPCReactProvider>
