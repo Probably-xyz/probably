@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
 import { Toaster } from 'sonner'
+import { GridGradient } from "~/_components/bg-comps";
 
 
 export const metadata = {
@@ -26,7 +27,10 @@ export default function RootLayout({
             disableTransitionOnChange
             >
               <Toaster richColors position="top-center"/>
+              <div className="flex h-screen w-screen justify-center  mt-[calc(30vh)]">
+                <GridGradient/>
               {children}
+              </div>
             </ThemeProvider>
         </TRPCReactProvider>
       </body>

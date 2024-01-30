@@ -5,7 +5,7 @@
 "use client"
 
 import Link from "next/link"
-import React, { useState } from "react"
+import React from "react"
 import { ubuntu } from "~/lib/fonts"
 import { Badge } from "~/styles/ui/badge"
 import Image from "next/image"
@@ -35,7 +35,6 @@ import { toast } from "sonner"
 import ReactConfetti from "react-confetti"
 
 export function SideBar() {
-  const [isDone, setIsDone] = useState(false)
   const path = usePathname()
 
   function copyFunc() {
@@ -43,7 +42,7 @@ export function SideBar() {
     toast.success("Email copied to clipboard")
   }
 
-  const prog = 10
+  const prog = 35
   return (
       <div className="hidden border-r lg:block dark:bg-gray-800/40">
         <div className="flex flex-col">
@@ -135,7 +134,6 @@ export function SideBar() {
             {/* <DashToggle/> */}
           </div>
         </div>
-        {/* { isDone ?? <ReactConfetti/> } */}
       </div>
   )
 }

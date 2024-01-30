@@ -39,9 +39,8 @@ model User {
   email         String?    @unique
   emailVerified DateTime?
   image         String?
+  role          String?
   accounts      Account[]
-  founder       Founder[]
-  investor      Investor[]
   sessions      Session[]
 }
 
@@ -53,26 +52,6 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Founder {
-  id       String   @id @default(cuid())
-  name     String?
-  email    String?
-  image    String?
-  bio      String?
-  userId   String
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  startups Startup?
-}
-
-model Investor {
-  id     String  @id @default(cuid())
-  name   String?
-  email  String?
-  image  String?
-  bio    String?
-  userId String
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
 
 model Startup {
   id          String  @id @default(cuid())
@@ -90,6 +69,5 @@ model Startup {
   otherSocial String?
   fileExtra   String?
   extraTwo    String?
-  founderId   String
-  createdBy   Founder @relation(fields: [id], references: [id], onDelete: Cascade)
+  founderId   String?
 }

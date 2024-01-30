@@ -1,32 +1,21 @@
-/* eslint-disable react/jsx-no-undef */
-import { redirect } from "next/navigation";
-import { StartupCard } from "~/_components/cards";
+"use client"
+
 import { TopDashNav } from "~/_components/nav";
-import { getServerAuthSession } from "~/server/auth";
+import { api } from "~/trpc/react";
 
-export default async function SignInButton ()  {
-  const session = await getServerAuthSession()
+export default function Gallery ()  {
 
-  if (!session){
-      redirect("/auth/login")
-  }
+  const getStartups = api.startup.getAll.useQuery
   
-  if(session){
+  
     return (
       <>
         <TopDashNav title="Gallery"/>
-        <div className="flex space-x-8">
-            <StartupCard/>
-            <StartupCard/>
-            <StartupCard/>
-          </div>
-          <div className="flex space-x-8">
-            <StartupCard/>
-            <StartupCard/>
-            <StartupCard/>
-          </div>
+        <div className="grid grid-cols-3">
+          
+        </div>
       </>
     );
   }
-};
+
 

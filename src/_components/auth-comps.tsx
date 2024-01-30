@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 "use client";
 
@@ -6,18 +7,15 @@ import { FaGoogle, FaGithub, FaSpinner } from "react-icons/fa";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { toast } from "sonner";
+import Image from 'next/image';
+import { ubuntu } from '~/lib/fonts';
 
 export default function LoginForm() {
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const [showEmailOption, setShowEmailOption] = useState(false);
-  const [showSSOOption, setShowSSOOption] = useState(false);
-  const [noSuchAccount, setNoSuchAccount] = useState(false);
   const [email, setEmail] = useState("");
-  const [clickedGoogle, setClickedGoogle] = useState(false);
-  const [clickedEmail, setClickedEmail] = useState(false);
-  const [clickedSSO, setClickedSSO] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
 
   // useEffect(() => {
@@ -32,13 +30,12 @@ export default function LoginForm() {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          setClickedEmail(true);
           setIsLoading(true)
                 signIn("email", {
                   email,
                   redirect: false,
+                  role: "founder"
                 }).then((res) => {
-                  setClickedEmail(false);
                   if (res?.ok && !res?.error) {
                     setEmail("");
                     toast.success("Email sent - check your inbox!");
@@ -65,7 +62,6 @@ export default function LoginForm() {
               required
               value={email}
               onChange={(e) => {
-                setNoSuchAccount(false);
                 setEmail(e.target.value);
               }}
               className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
@@ -79,11 +75,10 @@ export default function LoginForm() {
             type: "button",
             onClick: (e: { preventDefault: () => void; }) => {
               e.preventDefault();
-              setShowSSOOption(false);
               setShowEmailOption(true);
             },
           })}
-          disabled={clickedGoogle || clickedSSO || isLoading}
+          disabled={ isLoading }
         >
           {isLoading ? <FaSpinner className="animate-spin"/> : "Continue with email" }
         </Button>
@@ -129,5 +124,38 @@ export const LogoutBtn = () => {
     <Button onClick={() => signOut()}>
       Logout
     </Button>
+  )
+}
+
+
+export const LoginCard = ({sub, title}: any) => {
+  return (
+    <div className="relative z-10 h-fit w-full max-w-md overflow-hidden border-y border-neutral-200 sm:rounded-md sm:border sm:shadow-xl">
+    <div className="flex flex-col items-center justify-center space-y-3 border-b border-neutral-200 bg-neutral-50 px-4 py-6 pt-8 text-center sm:px-16">
+    <Link href="/">
+        <Image src="/5.png" width={50} height={50} alt={""}/>
+    </Link>      
+      <h3 className="text-xl font-semibold" style={ubuntu.style}>
+        {title}
+      </h3>
+      <p className="text-sm text-neutral-500">
+        {sub}
+      </p>
+    </div>
+    <div className="flex flex-col space-y-3 bg-neutral-100 px-4 py-8 sm:px-16">
+      <Suspense
+        fallback={
+          <>
+            <Button disabled={true}  variant="secondary"> Sign in with github </Button>
+            <Button disabled={true}  variant="secondary"> Sign in with google </Button>
+            <Button disabled={true}  variant="secondary"> Sign in with email </Button>
+            <div className="mx-auto h-5 w-3/4 rounded-lg bg-gray-100" />
+          </>
+        }
+      >
+        <LoginForm />
+      </Suspense>
+    </div>
+  </div>
   )
 }
