@@ -70,4 +70,8 @@ model Startup {
   fileExtra   String?
   extraTwo    String?
   founderId   String?
+  createdAt   DateTime?
+  founded     Int?
+  invStage    String?
+  milestones  String?
 }

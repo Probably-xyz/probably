@@ -108,10 +108,13 @@ export interface StartupProps {
     goal: string
     lookingFor: string
     id: string
+    founded:  number
+    invStage: string
+    milestones:  string
     //complete the rest later 
 }
 
-export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry, stage, goal, id}: StartupProps) => {
+export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry, stage, goal, id, founded, invStage, milestones}: StartupProps) => {
 
   const link = `/dashboard/gallery/` + id
   return (
@@ -128,7 +131,7 @@ export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry,
           <div className="w-12 h-12 items-center flex">
             <Image src={logo} width={100} height={100} alt="" className="my-auto"/>
           </div>
-          <CardTitle style={ubuntu.style} className="my-auto"> {name} <span className="text-sm text-neutral-500 font-normal ml-2"> Founded 2022 </span></CardTitle>
+          <CardTitle style={ubuntu.style} className="my-auto"> {name} <span className="text-sm text-neutral-500 font-normal ml-2"> Founded {founded} </span></CardTitle>
         </div>
         <CardDescription>
         {tagline}

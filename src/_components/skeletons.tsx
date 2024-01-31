@@ -27,3 +27,40 @@ export function SkeletonCard() {
     </div>
   )
 }
+
+export function SkeletonSlugTitle(){
+    return (
+        <>
+            <Skeleton className="h-4 w-[270px]"/>
+        </>
+    )
+}
+
+export function SkeletonSlugImage(){
+    return (
+        <>
+            <Skeleton className="h-16 w-16 rounded-md"/>
+        </>
+    )
+}
+
+export function SkeletonLong(){
+    return (
+        <>
+            <Skeleton className="h-6 w-[500px]"/>
+        </>
+    )
+}
+
+export function SkeletonParagraph(){
+    return (
+        <>
+            <div className="flex flex-col space-y-4">
+                <Skeleton className="h-4 w-[550px]"/>
+                <Skeleton className="h-4 w-[530px]"/>
+                <Skeleton className="h-4 w-[500px]"/>
+                <Skeleton className="h-4 w-[460px]"/>
+            </div>
+        </>
+    )
+}
