@@ -13,7 +13,6 @@ import Image from "next/image"
 import Link from "next/link";
 import { Badge } from "~/styles/ui/badge";
 import { FaDollarSign } from "react-icons/fa";
-import { CreateFounder, CreateInvestor } from "./create-account";
 import { Progress } from "~/styles/ui/progress";
 // import Confetti from "react-confetti"
 
@@ -32,7 +31,7 @@ export const FounderCard = () => {
           Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
         </p>
         <div className='flex space-x-4 mt-5'>
-          <CreateFounder/>
+          
           <Button variant="ghost" size="lg">
             Read more
           </Button>
@@ -57,7 +56,7 @@ export const InvestorCard = () => {
           Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
         </p>
         <div className='flex space-x-4 mt-5'>
-          <CreateInvestor/>
+          
           <Button variant="ghost" size="lg">
             Read more
           </Button>

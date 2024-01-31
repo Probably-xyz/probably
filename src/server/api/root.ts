@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // import { postRouter } from "~/server/api/routers/post";
 import { createTRPCRouter } from "~/server/api/trpc";
-import { founderRouter } from "./routers/founder";
-import { investorRouter } from "./routers/investor";
 import { startupRouter } from "./routers/startup";
 
 /**
@@ -11,8 +9,6 @@ import { startupRouter } from "./routers/startup";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  investor: investorRouter,
-  founder: founderRouter,
   startup: startupRouter,
 });
 
