@@ -107,22 +107,27 @@ export interface StartupProps {
     stage: string
     goal: string
     lookingFor: string
+    id: string
     //complete the rest later 
 }
 
-export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry, stage, goal}: StartupProps) => {
+export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry, stage, goal, id}: StartupProps) => {
+
+  const link = `/dashboard/gallery/` + id
   return (
-    <Link href="/dashboard/gallery/prbly">
+    <Link href={link}>
     <Card className="hover:shadow-lg rounded-md transition-all ease-in">
     <div className="flex items-center space-x-1">
           <Badge  className="px-7 text-sm font-normal mx-auto flex items-center justify-center bg-prblyPrimary">
             Looking for {lookingFor}
           </Badge>
       </div>
-    <CardHeader className="grid  items-start gap-4 space-y-0">
-      <div className="space-y-2">
-        <div className='flex space-x-2'>
-          <Image src={logo} width={30} height={30} alt=""/>
+    <CardHeader className="grid  items-start space-y-0">
+      <div className="space-y-3">
+        <div className='flex space-x-3 items-center my-auto'>
+          <div className="w-12 h-12 items-center flex">
+            <Image src={logo} width={100} height={100} alt="" className="my-auto"/>
+          </div>
           <CardTitle style={ubuntu.style} className="my-auto"> {name} <span className="text-sm text-neutral-500 font-normal ml-2"> Founded 2022 </span></CardTitle>
         </div>
         <CardDescription>
@@ -132,7 +137,6 @@ export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry,
      
     </CardHeader>
     <CardContent>
-      
       <div className="flex space-x-4 text-sm text-muted-foreground">
         <Badge variant="secondary" className="flex items-center">
           {stage}
