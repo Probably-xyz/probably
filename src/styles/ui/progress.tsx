@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 "use client"
 
@@ -21,7 +22,7 @@ const Progress = React.forwardRef<
              
 
     <ProgressPrimitive.Indicator
-      className={cn("h-full w-full flex-1 shadow-inner transition-all", value > 45 ? "bg-green-400" : value < 30 ? " bg-red-500" : "bg-yellow-500")}
+      className={cn("h-full w-full flex-1 shadow-inner transition-all", value as number > 45 ? "bg-green-400" : value as number < 30 ? " bg-red-500" : "bg-yellow-500")}
       style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
     />
      <span className="relative bottom-[-2px] right-10 text-sm font-light inline"> {value} </span>
