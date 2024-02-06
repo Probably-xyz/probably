@@ -5,7 +5,9 @@ const Profile = () => {
   return (
     <>
     <TopDashNav title="Profile"/>
-    <div>Profile</div>
+    <>
+      <h1 className="text-2xl p-10"> Profile forms here --  </h1>
+    </>
     </>
   )
 }

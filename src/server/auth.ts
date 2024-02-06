@@ -99,7 +99,6 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     error: "/auth/login",
-    newUser: "/auth/welcome",
   }
 };
 

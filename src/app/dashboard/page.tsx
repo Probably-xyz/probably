@@ -10,7 +10,14 @@ export default async function SignInButton ()  {
     return (
       <>
       <TopDashNav title="Home"/>
-      <h1> Hello {session?.user.name} </h1>
+        <h1 className="text-xl px-10 py-3"> 
+          Investor wishlist -- founder spotlight (favorites) - prbly updates and news
+       </h1>
+
+
+       <h1 className="text-xl px-10 py-3"> 
+         Founder (My startups) -- TBD - prbly updates and news
+       </h1>       
       </>
     );
   }

@@ -107,11 +107,11 @@ export function SideBar() {
             <Separator className="w-10/12 mx-auto my-5"/>
             <nav className="grid items-start px-4 text-sm font-normal space-y-4">
             <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 font-bold transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"
                 href="#"
               >
                 <ExternalLinkIcon className="h-[14px] w-[14px]"/>
-                Twitter / X
+                  X
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-50"

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { FaDollarSign } from 'react-icons/fa'
 import { ubuntu } from '~/lib/fonts'
@@ -265,9 +266,12 @@ export function PreviewCardThree(){
                         </p>
                 </div>
                 <DialogFooter className="flex mx-auto items-center pt-10">
-                <Button>
-                    View more
-                </Button>
+                    <Link href="/dashboard/gallery/cls0ah9wy0000q1kwpyc1ws1y">
+                        <Button>
+                            View more
+                        </Button>
+                    </Link>
+              
                 </DialogFooter>
             </DialogContent>
         </Dialog>

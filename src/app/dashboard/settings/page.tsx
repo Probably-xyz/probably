@@ -5,7 +5,7 @@ const Settings = () => {
   return (
     <>
     <TopDashNav title="settings" />
-    <div>Settings</div>
+    <h1 className="text-2xl p-10"> Removing </h1>
     </>
   )
 }

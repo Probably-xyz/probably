@@ -34,7 +34,6 @@ export default function LoginForm() {
                 signIn("email", {
                   email,
                   redirect: false,
-                  role: "founder"
                 }).then((res) => {
                   if (res?.ok && !res?.error) {
                     setEmail("");
@@ -57,7 +56,7 @@ export default function LoginForm() {
               name="email"
               autoFocus
               type="email"
-              placeholder="panic@thedis.co"
+              placeholder="auth@prbly.xyz"
               autoComplete="email"
               required
               value={email}

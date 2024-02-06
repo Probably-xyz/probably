@@ -16,12 +16,12 @@ export default async function  LoginPage() {
       redirect("/dashboard")
   }
   return (
-      <Tabs defaultValue="account" className="w-[450px]">
+      <Tabs defaultValue="founder" className="w-[450px]">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
+          <TabsTrigger value="founder"> Founder </TabsTrigger>
+          <TabsTrigger value="investor"> Investor </TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
+        <TabsContent value="founder">
         <div className="relative z-10 h-fit w-full max-w-md overflow-hidden border-y border-neutral-200 sm:rounded-md sm:border sm:shadow-xl">
           <div className="flex flex-col items-center justify-center space-y-3 border-b border-neutral-200 bg-neutral-50 px-4 py-6 pt-8 text-center sm:px-16">
           <Link href="/">
@@ -50,8 +50,8 @@ export default async function  LoginPage() {
           </div>
         </div>
         </TabsContent>
-        <TabsContent value="password">
-          <LoginCard title="Login" sub="I dont know"/>
+        <TabsContent value="investor">
+          <LoginCard title="Login" sub="subtitle here / tbd"/>
         </TabsContent>
       </Tabs>
   );
