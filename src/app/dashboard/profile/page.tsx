@@ -1,13 +1,13 @@
 import React from 'react'
+import { GeneralFounderForm, SocialsFounderForm } from '~/_components/forms'
 import { TopDashNav } from '~/_components/nav'
 
 const Profile = () => {
   return (
     <>
-    <TopDashNav title="Profile"/>
-    <>
-      <h1 className="text-2xl p-10"> Profile forms here --  </h1>
-    </>
+      <TopDashNav title="Profile bye"/>
+      <GeneralFounderForm/>
+      <SocialsFounderForm/>
     </>
   )
 }

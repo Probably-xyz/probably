@@ -1,14 +1,16 @@
 
-import React, { Suspense } from 'react'
+import React from 'react'
 import type { StartupProps } from './cards'
 import Image  from 'next/image'
 import { Badge } from '~/styles/ui/badge'
 import { ubuntu } from '~/lib/fonts'
 import { Separator } from '~/styles/ui/separator'
 import { FaDollarSign } from 'react-icons/fa'
-import { SkeletonLong, SkeletonParagraph, SkeletonSlugImage, SkeletonSlugTitle } from './skeletons'
+import { Avatar, AvatarFallback, AvatarImage } from '~/styles/ui/avatar'
+import { UserAvatar } from './dashboard'
+import Link from 'next/link'
 
-export async function SlugGallry({name, logo, lookingFor, tagline, summary, industry, stage, goal, invStage, milestones, founded}: StartupProps) {
+export function SlugGallry({name, logo, lookingFor, tagline, summary, industry, stage, goal, invStage, milestones, founded, size, team}: StartupProps) {
 
     // const random = Math.floor(Math.random() * 5 + 5) * 1000
     // await new Promise((resolve) => setTimeout(resolve, 1500))
@@ -33,29 +35,51 @@ export async function SlugGallry({name, logo, lookingFor, tagline, summary, indu
                         </h1>
                         <span className="text-sm my-auto text-neutral-500 font-normal"> Founded {founded} </span>
                     {/* </Suspense> */}
+
                     
 
                 </div>
+                <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center relative top-10">
+                        <div className="flex flex-row space-x-4">
+                        <div className='flex space-x-2'> 
+                                <h2 className="my-auto"> Posted by </h2> 
+                                <Link href="/">
+                                    <Avatar className="h-7 w-7 outline outline-prblyPrimary">
+                                            <AvatarImage src="/5.png" alt="hello" />
+                                            <AvatarFallback> NK </AvatarFallback>
+                                    </Avatar>
+                                </Link>
+                        </div>
+                         <h2 className="my-auto"> Size of team: <span className="text-prblyPrimary"> {size} </span> </h2> 
+                        </div>
+                        
+                </div>
+            </div>
                 
-                <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center my-auto mt-20">
-                    {/* <Suspense fallback={<SkeletonLong/>}> */}
+                <Separator/>
+
+                <div className="flex flex-col mt-10">
+               
+                        <h1 className="text-2xl mb-5" style={ubuntu.style}> Overview </h1>
+
+                        <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center mb-8">
                         <div className="flex flex-row space-x-4">
                           
-                                <Badge className="flex items-center p-2">
+                                <Badge className="flex items-center">
                                     Looking for {lookingFor}
                                 </Badge>
-                                <Badge className="flex items-center p-2">
+                                <Badge className="flex items-center">
                                     {stage}
                                 </Badge>
-                                <Badge variant="secondary" className="flex items-center p-2">
+                                <Badge variant="secondary" className="flex items-center">
                                     {invStage}
                                 </Badge>
-                                <Badge variant="secondary" className="flex items-center p-2">
+                                <Badge variant="secondary" className="flex items-center">
                                 {industry}
                                 </Badge>
                         </div>
                         <div className="flex flex-row space-x-4">
-                            <Badge variant="outline" className="flex items-center p-2">
+                            <Badge variant="outline" className="flex items-center">
                                 🇧🇭 BH
                             </Badge>
                             <div className="flex items-center text-prblyPrimary text-base">
@@ -63,18 +87,8 @@ export async function SlugGallry({name, logo, lookingFor, tagline, summary, indu
                                 {goal}
                             </div>
                         </div>  
-                    {/* </Suspense>        */}
                 </div>
-                   
-            </div>
-                
-                <Separator/>
 
-                <div className="flex flex-col mt-10">
-               
-                        <h1 className="text-2xl mb-12" style={ubuntu.style}> Overview </h1>
-
-                   
                         <h1 className="text-xl mb-1" style={ubuntu.style}> Description </h1>
                         {/* <Suspense fallback={<SkeletonParagraph/>}> */}
                             <p className="text-base text-neutral-500 max-w-3xl mb-10"> 
@@ -94,7 +108,7 @@ export async function SlugGallry({name, logo, lookingFor, tagline, summary, indu
                         <h1 className="text-xl mb-1" style={ubuntu.style}> Core team </h1>
                         
                             <p className="text-base text-neutral-500 max-w-3xl mb-10"> 
-                            Experienced team: Led by female founders who have worked together for 17 years and have launched 3 startups together, and 50% of our team members are under 25, giving us an edge in understanding our market.
+                                {team}
                             </p>
                 </div>
             </div>

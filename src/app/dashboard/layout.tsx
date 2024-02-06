@@ -27,7 +27,7 @@ export default async function RootLayout({
   }
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="overflow-hidden">
+      <body className="">
         <TRPCReactProvider>
             <ThemeProvider
             attribute="class"
@@ -36,8 +36,8 @@ export default async function RootLayout({
             disableTransitionOnChange
             >
           <Toaster richColors position="top-center"/>
-          <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[235px_1fr]">
-            <SideBar/>
+          <div className="grid min-h-screen w-full lg:grid-cols-[235px_1fr]">
+              <SideBar/>
               <main className="flex flex-col p-8 space-y-8 max-w-screen-2xl">
                 <Suspense>
                   {children}

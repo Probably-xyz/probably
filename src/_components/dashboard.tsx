@@ -32,7 +32,6 @@ import { signOut } from "next-auth/react"
 import { usePathname } from "next/navigation"
 import { cn } from "~/lib/utils"
 import { toast } from "sonner"
-import ReactConfetti from "react-confetti"
 
 export function SideBar() {
   const path = usePathname()
@@ -41,11 +40,11 @@ export function SideBar() {
     navigator.clipboard.writeText("hello@prbly.xyz")
     toast.success("Email copied to clipboard")
   }
-
+  
   const prog = 35
   return (
       <div className="hidden border-r lg:block dark:bg-gray-800/40">
-        <div className="flex flex-col">
+        <div className="flex fixed flex-col">
           <div className="flex h-[60px] items-center px-6 pb-12 pt-14">
             <Link className="flex items-center gap-2 font-semibold" href="/">
               <Image src="/5.png" width={30} height={30} alt={"Prbly-Logo"} className="my-auto"/>
@@ -96,13 +95,7 @@ export function SideBar() {
                 Profile
                 <Badge className="ml-auto flex h-4 w-4 shrink-0 items-center justify-center bg-prblyPrimary">3</Badge>
               </Link>
-              <Link
-                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-neutral-500 transition-all hover:bg-neutral-200/80 dark:text-neutral-400 dark:hover:text-neutral-50", path.startsWith("/dashboard/settings") ? "bg-neutral-100" : "bg-transparent")}
-                href="/dashboard/settings"
-              >
-                <GearIcon className="h-[14px] w-[14px]"/>
-                Settings
-              </Link>
+            
             </nav>
             <Separator className="w-10/12 mx-auto my-5"/>
             <nav className="grid items-start px-4 text-sm font-normal space-y-4">
@@ -173,12 +166,7 @@ export function UserAvatar({initials, image, name, email, id}: UserDetails) {
             Profile
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <Link href="/">   
-          <DropdownMenuItem className="cursor-pointer">
-            Settings
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          </Link>
+         
           <Link href="/">   
             <DropdownMenuItem className="cursor-pointer"> Back to home  </DropdownMenuItem> 
           </Link>

@@ -110,6 +110,8 @@ export interface StartupProps {
     founded:  number
     invStage: string
     milestones:  string
+    size: string
+    team: string
     //complete the rest later 
 }
 

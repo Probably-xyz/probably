@@ -74,4 +74,6 @@ model Startup {
   founded     Int?
   invStage    String?
   milestones  String?
+  coreTeam    String?
+  teamSize    String?
 }

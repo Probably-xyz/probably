@@ -17,13 +17,9 @@ const Prbly = () => {
   // CREATE COMP SEPERATE, ADD PROPS AND INJECT. CLEAN CODE. THIS SHOULD BE DONE. ALSO SHOW, FROM FOUNDER STARTUPS BELOW, AND SIMILAR STARTUPS  
   return (
     <>
-    <Suspense>
-      <SlugGallry name={res.data?.name as string} logo={res.data?.logo as string} tagline={res.data?.tagline as string} summary={res.data?.summary as string} industry={res.data?.industry as string} stage={res.data?.stage as string} goal={res.data?.goal as string} lookingFor={res.data?.lookingFor as string} id={res.data?.id as string} founded={res.data?.founded as number} invStage={res.data?.invStage as string} milestones={res.data?.milestones as string}/>
-      
-    </Suspense>
-     
-      
-   
+      <Suspense>
+        <SlugGallry name={res.data?.name as string} logo={res.data?.logo as string} tagline={res.data?.tagline as string} summary={res.data?.summary as string} industry={res.data?.industry as string} stage={res.data?.stage as string} goal={res.data?.goal as string} lookingFor={res.data?.lookingFor as string} id={res.data?.id as string} founded={res.data?.founded as number} invStage={res.data?.invStage as string} milestones={res.data?.milestones as string} size={res.data?.size as string} team={res.data?.coreTeam as string} />
+      </Suspense>
     </>
   )
 }
