@@ -11,14 +11,12 @@ const Prbly = () => {
   const params = useParams()
   const id = params.id as string
   const res = api.startup.getOne.useQuery(id)
-  // console.log(res)
+  const data = res.data
 
-
-  // CREATE COMP SEPERATE, ADD PROPS AND INJECT. CLEAN CODE. THIS SHOULD BE DONE. ALSO SHOW, FROM FOUNDER STARTUPS BELOW, AND SIMILAR STARTUPS  
   return (
     <>
       <Suspense>
-        <SlugGallry name={res.data?.name as string} logo={res.data?.logo as string} tagline={res.data?.tagline as string} summary={res.data?.summary as string} industry={res.data?.industry as string} stage={res.data?.stage as string} goal={res.data?.goal as string} lookingFor={res.data?.lookingFor as string} id={res.data?.id as string} founded={res.data?.founded as number} invStage={res.data?.invStage as string} milestones={res.data?.milestones as string} size={res.data?.size as string} team={res.data?.coreTeam as string} />
+        <SlugGallry id={data?.id as string} name={data?.name as string} logo={data?.logo as string} founded={data?.founded as number} industry={data?.industry as string} tagline={data?.tagline as string} lookingFor={data?.lookingFor as string} desc={data?.desc as string} development={data?.development as string} region={data?.region as string} stage={data?.stage as string} fundGoal={data?.fundGoal as string} milestones={data?.milestones as string} teamSize={data?.teamSize as string} teamDesc={data?.teamDesc as string} website={data?.website} linkedin={data?.linkedin} twitter={data?.twitter} otherSocial={data?.otherSocial} pitch={data?.pitch} video={data?.video}/>
       </Suspense>
     </>
   )

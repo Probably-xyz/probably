@@ -14,6 +14,8 @@ import Link from "next/link";
 import { Badge } from "~/styles/ui/badge";
 import { FaDollarSign } from "react-icons/fa";
 import { Progress } from "~/styles/ui/progress";
+import { type StartupCardType} from "~/lib/types";
+import { CreateFounder, CreateInvestor } from "./create-account";
 // import Confetti from "react-confetti"
 
 
@@ -23,7 +25,7 @@ export const FounderCard = () => {
       <div className='absolute top-0 flex w-full justify-center'>
         <div className='left-0 h-[1.5px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-black to-[rgba(17,17,17,0)] transition-all duration-1000' />
       </div>
-      <div className='flex flex-col h-full px-5 py-6 rounded-md border border-slate-300 bg-neutral-50 dark:bg-neutral-900'>
+      <div className='flex flex-col h-full px-5 py-6 rounded-md border border-slate-300 bg-neutral-50/40 dark:bg-neutral-900'>
         <h1 className="text-3xl mb-2 font-medium text-left leading-tight dark:text-neutral-100" style={ubuntu.style}> 
            The Founder's Club
         </h1>
@@ -31,7 +33,7 @@ export const FounderCard = () => {
           Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
         </p>
         <div className='flex space-x-4 mt-5'>
-          
+          <CreateFounder/>
           <Button variant="ghost" size="lg">
             Read more
           </Button>
@@ -48,7 +50,7 @@ export const InvestorCard = () => {
       <div className='absolute top-0 flex w-full justify-center'>
         <div className='left-0 h-[1.5px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-black to-[rgba(17,17,17,0)] transition-all duration-1000' />
       </div>
-      <div className='flex flex-col h-full px-5 py-6 rounded-md border border-slate-300 bg-neutral-50 dark:bg-neutral-900'>
+      <div className='flex flex-col h-full px-5 py-6 rounded-md border border-slate-300 bg-neutral-50/40 dark:bg-neutral-900'>
         <h1 className="text-3xl mb-2 font-medium text-left leading-tight dark:text-neutral-100" style={ubuntu.style}> 
            The Investor's Club
         </h1>
@@ -56,7 +58,7 @@ export const InvestorCard = () => {
           Join the Founders Club where investors & contributors can find, support, and fund your startup, easily.
         </p>
         <div className='flex space-x-4 mt-5'>
-          
+          <CreateInvestor/>
           <Button variant="ghost" size="lg">
             Read more
           </Button>
@@ -97,25 +99,9 @@ export const CompleteProfile = ({progress}: any) => {
   );
 }
 
-export interface StartupProps {
-    name: string
-    logo: string
-    tagline: string
-    summary: string
-    industry: string
-    stage: string
-    goal: string
-    lookingFor: string
-    id: string
-    founded:  number
-    invStage: string
-    milestones:  string
-    size: string
-    team: string
-    //complete the rest later 
-}
 
-export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry, stage, goal, id, founded, invStage, milestones}: StartupProps) => {
+
+export const StartupCard = ({name, logo, lookingFor, tagline, id, stage, industry, fundGoal, founded, region}: StartupCardType) => {
 
   const link = `/dashboard/gallery/` + id
   return (
@@ -149,11 +135,11 @@ export const StartupCard = ({name, logo, lookingFor, tagline, summary, industry,
           {industry}
         </Badge>
         <Badge variant="outline">
-        🇱🇧 LB
+        {region}
         </Badge>
         <div className="flex items-center text-prblyPrimary">
           <FaDollarSign className="h-3 w-3" />
-          {goal}
+          {fundGoal}
         </div>
       </div>
     </CardContent>

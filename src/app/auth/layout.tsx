@@ -27,10 +27,10 @@ export default function RootLayout({
             disableTransitionOnChange
             >
               <Toaster richColors position="top-center"/>
-              <div className="flex h-screen w-screen justify-center  mt-[calc(30vh)]">
-                <GridGradient/>
+              {/* <div className="flex h-screen w-screen justify-center mt-[calc(30vh)]"> */}
+              {/* <GridGradient/> */}
               {children}
-              </div>
+              {/* </div> */}
             </ThemeProvider>
         </TRPCReactProvider>
       </body>

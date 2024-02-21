@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/_components/theme-provider";
@@ -25,6 +26,8 @@ export default async function RootLayout({
   if (!session){
       redirect("/auth/login")
   }
+
+  console.log(session.user)
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="">
@@ -37,7 +40,7 @@ export default async function RootLayout({
             >
           <Toaster richColors position="top-center"/>
           <div className="grid min-h-screen w-full lg:grid-cols-[235px_1fr]">
-              <SideBar/>
+              <SideBar role={session.user.role as string}/>
               <main className="flex flex-col p-8 space-y-8 max-w-screen-2xl">
                 <Suspense>
                   {children}

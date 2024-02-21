@@ -3,11 +3,11 @@ import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 import { PreviewCardOne, PreviewCardThree, PreviewCardTwo } from "~/_components/startups-preview";
 import { MainHeader, SubHeader } from "~/_components/text-blocks";
+import { getServerAuthSession } from "~/server/auth";
 import { Button } from "~/styles/ui/button";
 
 export default async function Home() {
   noStore();
-
   return (
     <>
      <main className="min-h-[73vh] container flex justify-between">

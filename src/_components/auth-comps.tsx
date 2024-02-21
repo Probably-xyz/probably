@@ -6,8 +6,7 @@ import { Button } from '~/styles/ui/button'
 import { FaGoogle, FaGithub, FaSpinner } from "react-icons/fa";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { toast } from "sonner";
 import Image from 'next/image';
 import { ubuntu } from '~/lib/fonts';
@@ -22,7 +21,6 @@ export default function LoginForm() {
   //   const error = searchParams?.get("error");
   //   error && toast.error(error);
   // }, [searchParams]);
-
   return (
     <>
       <GoogleBtn />

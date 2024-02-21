@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import {
@@ -25,14 +26,16 @@ declare module "next-auth" {
     user: {
       id: string;
       // ...other properties
-      // role: UserRole;
+      role: string;
     } & DefaultSession["user"];
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+   id: string,
+   email: string, 
+   role: string,
+   image: string,
+  }
 }
 
 /**
@@ -47,6 +50,7 @@ export const authOptions: NextAuthOptions = {
       user: {
         ...session.user,
         id: user.id,
+        role: user.role
       },
     }),
   },
@@ -57,7 +61,6 @@ export const authOptions: NextAuthOptions = {
       clientSecret: env.GITHUB_CLIENT_SECRET
     }),
     GoogleProvider({
-      
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET
     }),
@@ -74,17 +77,17 @@ export const authOptions: NextAuthOptions = {
       },
       from: env.EMAIL_FROM,
       sendVerificationRequest({ identifier, url }) {
-        // if (process.env.NODE_ENV === "development") {
-        //   console.log(`Login link: ${url}`);
-        //   console.log(`HELLO HELLO: ${identifier}`)
-        //   return;
-        // } else {
+        if (process.env.NODE_ENV === "development") {
+          console.log(`Login link: ${url}`);
+          console.log(`HELLO HELLO: ${identifier}`)
+          return;
+        } else {
           sendEmail({
             email: identifier,
             subject: `Your Prbly Login Link`,
             react: MagicLinkEmail({ magicLink: url, email: identifier }),
           });
-        // }
+        }
       },
     })
     /**
@@ -99,7 +102,10 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     error: "/auth/login",
-  }
+    newUser: "/auth/welcome"
+  },
+
+  
 };
 
 /**

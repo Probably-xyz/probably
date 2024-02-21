@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-implied-eval */
 /* eslint-disable @typescript-eslint/no-floating-promises */
@@ -11,7 +12,7 @@ import { Badge } from "~/styles/ui/badge"
 import Image from "next/image"
 import { Separator } from "~/styles/ui/separator"
 import { CompleteProfile } from "./cards"
-import { Crosshair2Icon, ExternalLinkIcon, GearIcon, HomeIcon, ImageIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons"
+import { Crosshair2Icon, ExternalLinkIcon, HomeIcon, ImageIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons"
 import {
   Avatar,
   AvatarFallback,
@@ -33,7 +34,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "~/lib/utils"
 import { toast } from "sonner"
 
-export function SideBar() {
+export function SideBar({role}: any) {
   const path = usePathname()
 
   function copyFunc() {
@@ -48,7 +49,7 @@ export function SideBar() {
           <div className="flex h-[60px] items-center px-6 pb-12 pt-14">
             <Link className="flex items-center gap-2 font-semibold" href="/">
               <Image src="/5.png" width={30} height={30} alt={"Prbly-Logo"} className="my-auto"/>
-              <span className="my-auto text-lg font-normal" style={ubuntu.style}> Prbly <span className="text-prblyPrimary text-sm my-auto"> (investor) </span>  </span>
+              <span className="my-auto text-lg font-normal" style={ubuntu.style}> Prbly <span className="text-prblyPrimary text-sm my-auto"> ({role}) </span>  </span>
             </Link>
           </div>
           <div className="flex-1">

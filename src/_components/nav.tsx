@@ -102,7 +102,7 @@ export const revalidate = 1300
 export async function TopDashNav({title}: TitleProp) {
   const session = await getServerAuthSession()
   
-  const name = JSON.stringify(session?.user.name)
+  const name = session?.user.name
   const email = `${session?.user.email}`
   
   if (name === "null"){
@@ -115,13 +115,16 @@ export async function TopDashNav({title}: TitleProp) {
                 
             </div>
             <div className="flex items-center gap-2 ">
-              <UserAvatar initials={"NK"} image={session?.user.image as string} name={"Change display name"} email={session?.user.email as string} id={''}/>
+              <UserAvatar initials={init[0]} image={session?.user.image as string} name={"Change display name"} email={session?.user.email as string} id={''}/>
             </div>
         </div>
       </div>
      )
   }
   else if (name != "null"){
+    const initName = `${session?.user.name}`
+    const init = initName.split("")
+    return (
     <div className="flex flex-col gap-2 justify-between">
     <div className="flex h-[60px] max-w-screen-xl justify-between items-center px-6 pb-10 pt-14 border-b">
         <div className="flex items-center gap-2 font-semibold">
@@ -129,10 +132,12 @@ export async function TopDashNav({title}: TitleProp) {
 
         </div>
         <div className="flex items-center gap-2 ">
-          <UserAvatar initials={name} image={session?.user.image as string} name={name} email={session?.user.email as string} id={''}/>
+          <UserAvatar initials={init[0]} image={session?.user.image as string} name={name as string} email={session?.user.email as string} id={''}/>
         </div>
     </div>
   </div>
+    )
   }
+
      
 }
