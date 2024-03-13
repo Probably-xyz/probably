@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react'
 import Image  from 'next/image'
 import { Badge } from '~/styles/ui/badge'
@@ -10,7 +14,13 @@ import { type StartupProps } from '~/lib/types'
 import { Button } from '~/styles/ui/button'
 
 export function SlugGallry({name, logo, lookingFor, tagline, desc, industry, stage, development, milestones, founded, region, teamSize, teamDesc, fundGoal, pitch}: StartupProps) {
+    function formatDate(string: number | Date){
+       
+        return new Date(string).getFullYear();
+    }
+    const date = formatDate(founded)
 
+    
     return (
         <>
           <div className="w-full flex flex-col overflow-scroll p-10">
@@ -26,13 +36,14 @@ export function SlugGallry({name, logo, lookingFor, tagline, desc, industry, sta
                     <h1 style={ubuntu.style} className="my-auto text-neutral-600 mb-2">
                         {tagline}                    
                     </h1>
-                    <span className="text-sm my-auto text-neutral-500 font-normal"> Founded {founded} </span>
+                    <span className="text-sm my-auto text-neutral-500 font-normal"> Founded {date} </span>
                     
 
                     
 
                 </div>
-                <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center relative top-10">
+                <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center relative top-6">
+                 <Button variant="destructive"> Delete </Button>
                         <div className="flex flex-row space-x-4">
                         <div className='flex space-x-2'> 
                                 <h2 className="my-auto"> Posted by </h2> 
@@ -108,4 +119,114 @@ export function SlugGallry({name, logo, lookingFor, tagline, desc, industry, sta
         </>
   )
 }
+
+// export async function SlugGallryTest(id: string) {
+
+//     const req = await api.startup.getOne.query(id)
+
+//     function formatDate(string: any){
+       
+//         return new Date(string).getFullYear();
+//     }
+//     const date = formatDate(req?.founded)
+
+    
+//     return (
+//         <>
+//           <div className="w-full flex flex-col overflow-scroll p-10">
+//                 <div className="flex justify-between">
+//                 <div className="flex flex-col mb-3 max-w-lg"> 
+
+//                     <div className="w-16 h-16 items-center flex">
+//                         <Image src={req?.logo!} width={100} height={100} alt="" className="my-auto" loading="lazy"/>
+//                     </div>
+                   
+
+//                     <h1 style={ubuntu.style} className="my-auto text-lg pt-6"> {req?.name!} </h1>
+//                     <h1 style={ubuntu.style} className="my-auto text-neutral-600 mb-2">
+//                         {req?.tagline}                    
+//                     </h1>
+//                     <span className="text-sm my-auto text-neutral-500 font-normal"> Founded {date} </span>
+                    
+
+                    
+
+//                 </div>
+//                 <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center relative top-6">
+//                  <Button> Delete </Button>
+//                         <div className="flex flex-row space-x-4">
+//                         <div className='flex space-x-2'> 
+//                                 <h2 className="my-auto"> Posted by </h2> 
+//                                 <Link href="/">
+//                                     <Avatar className="h-7 w-7 outline outline-prblyPrimary">
+//                                             <AvatarImage src="/5dd.png" alt="hello" />
+//                                             <AvatarFallback> NK </AvatarFallback>
+//                                     </Avatar>
+//                                 </Link>
+//                         </div>
+//                          <h2 className="my-auto"> Size of team: <span className="text-prblyPrimary"> {req?.teamSize} </span> </h2> 
+//                         </div>
+                        
+//                 </div>
+//                 </div>
+//                 <Separator/>
+//                 <div className="flex justify-between mt-10">
+                    
+//                 <div className="flex flex-col ">
+//                         <h1 className="text-2xl mb-5" style={ubuntu.style}> Overview </h1>
+
+//                         <div className="flex flex-col space-y-4 text-sm text-muted-foreground justify-center mb-8">
+//                         <div className="flex flex-row space-x-4">
+                          
+//                                 <Badge className="flex items-center">
+//                                     Looking for {req?.lookingFor}
+//                                 </Badge>
+//                                 <Badge className="flex items-center">
+//                                     {req?.stage}
+//                                 </Badge>
+//                                 <Badge variant="secondary" className="flex items-center">
+//                                     {req?.development}
+//                                 </Badge>
+//                                 <Badge variant="secondary" className="flex items-center">
+//                                     {req?.industry}
+//                                 </Badge>
+//                         </div>
+//                         <div className="flex flex-row space-x-4">
+//                             <Badge variant="outline" className="flex items-center">
+//                                 {req?.region}
+//                             </Badge>
+//                             <div className="flex items-center text-prblyPrimary text-base">
+//                                 <FaDollarSign className="h-4 w-4" />
+//                                 {req?.fundGoal}
+//                             </div>
+//                         </div>  
+//                 </div>
+
+//                             <h1 className="text-xl mb-1" style={ubuntu.style}> Description </h1>
+//                             <p className="text-base text-neutral-500 max-w-3xl mb-10"> 
+//                                 {req?.desc}
+//                             </p>
+                       
+//                             <h1 className="text-xl mb-1" style={ubuntu.style}> Milestones </h1>
+//                             <p className="text-base text-neutral-500 max-w-3xl mb-10"> 
+//                                 {req?.milestones}
+//                             </p>
+                      
+
+//                             <h1 className="text-xl mb-1" style={ubuntu.style}> Core team </h1>
+//                             <p className="text-base text-neutral-500 max-w-3xl mb-10"> 
+//                                 {req?.teamDesc}
+//                             </p>
+//                 </div>
+//                 <a href={req?.pitch!}>
+//                     <Button className="w-[220px] mt-10" size='lg'> Download pitch </Button>
+//                 </a>
+
+//                 </div>
+               
+//             </div>
+            
+//         </>
+//   )
+// }
 

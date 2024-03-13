@@ -16,7 +16,7 @@ const Prbly = () => {
   return (
     <>
       <Suspense>
-        <SlugGallry id={data?.id as string} name={data?.name as string} logo={data?.logo as string} founded={data?.founded as number} industry={data?.industry as string} tagline={data?.tagline as string} lookingFor={data?.lookingFor as string} desc={data?.desc as string} development={data?.development as string} region={data?.region as string} stage={data?.stage as string} fundGoal={data?.fundGoal as string} milestones={data?.milestones as string} teamSize={data?.teamSize as string} teamDesc={data?.teamDesc as string} website={data?.website} linkedin={data?.linkedin} twitter={data?.twitter} otherSocial={data?.otherSocial} pitch={data?.pitch} video={data?.video}/>
+        <SlugGallry id={data?.id as string} name={data?.name as string} logo={data?.logo as string} founded={data?.founded as Date} industry={data?.industry as string} tagline={data?.tagline as string} lookingFor={data?.lookingFor as string} desc={data?.desc as string} development={data?.development as string} region={data?.region as string} stage={data?.stage as string} fundGoal={data?.fundGoal as string} milestones={data?.milestones as string} teamSize={data?.teamSize as string} teamDesc={data?.teamDesc as string} website={data?.website} linkedin={data?.linkedin} twitter={data?.twitter} otherSocial={data?.otherSocial} pitch={data?.pitch} video={data?.video}/>
       </Suspense>
     </>
   )

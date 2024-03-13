@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 import { ubuntu } from "~/lib/fonts";
@@ -16,6 +18,7 @@ import { FaDollarSign } from "react-icons/fa";
 import { Progress } from "~/styles/ui/progress";
 import { type StartupCardType} from "~/lib/types";
 import { CreateFounder, CreateInvestor } from "./create-account";
+import { number } from "zod";
 // import Confetti from "react-confetti"
 
 
@@ -102,7 +105,13 @@ export const CompleteProfile = ({progress}: any) => {
 
 
 export const StartupCard = ({name, logo, lookingFor, tagline, id, stage, industry, fundGoal, founded, region}: StartupCardType) => {
+  function formatDate(string: number | Date){
+    const options = { year: number};
+    return new Date(string).getFullYear();
+}
 
+const date = formatDate(founded)
+  console.log(date)
   const link = `/dashboard/gallery/` + id
   return (
     <Link href={link}>
@@ -118,7 +127,7 @@ export const StartupCard = ({name, logo, lookingFor, tagline, id, stage, industr
           <div className="w-12 h-12 items-center flex">
             <Image src={logo} width={100} height={100} alt="" className="my-auto"/>
           </div>
-          <CardTitle style={ubuntu.style} className="my-auto"> {name} <span className="text-sm text-neutral-500 font-normal ml-2"> Founded {founded} </span></CardTitle>
+          <CardTitle style={ubuntu.style} className="my-auto"> {name} <span className="text-sm text-neutral-500 font-normal ml-2"> Founded {date} </span></CardTitle>
         </div>
         <CardDescription>
         {tagline}

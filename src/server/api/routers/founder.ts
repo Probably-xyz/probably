@@ -72,12 +72,12 @@ export const founderRouter = createTRPCRouter({
         }
     });
   }),
-  getStartups: protectedProcedure.query(({ ctx }) => {
-    return ctx.db.startup.findMany({
-      orderBy: { createdAt: "desc" },
-      where: { authorId: ctx.session.user.id },
-    });
-  }),
+  // getStartups: protectedProcedure.query(({ ctx }) => {
+  //   return ctx.db.startup.findMany({
+  //     orderBy: { createdAt: "desc" },
+  //     where: { authorId: ctx.session.user.id },
+  //   });
+  // }),
   getProfile: protectedProcedure.query(({ ctx }) => {
     return ctx.db.founder.findUnique({
       where: {

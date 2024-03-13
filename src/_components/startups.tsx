@@ -67,7 +67,7 @@ export function MyGrid(){
 
     const getFounder = api.startup.getMyStartups.useQuery() 
     const founder = getFounder.data
-    const posts = founder.startups
+    const posts = founder?.startups
     return (
         <>
             <div className="grid grid-cols-3 gap-8">

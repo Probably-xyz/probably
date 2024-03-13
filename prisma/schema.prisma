@@ -96,28 +96,27 @@ model Startup {
   id          String  @id @default(cuid())
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
-  name        String
-  logo        String
-  founded     Int
-  industry    String
-  tagline     String
-  desc        String
-  lookingFor  String
-  development String
-  region      String
-  stage       String
+  name        String?
+  logo        String?
+  founded     DateTime?
+  industry    String?
+  tagline     String?
+  desc        String?
+  lookingFor  String?
+  development String?
+  region      String?
+  stage       String?
   fundGoal    String?
-  milestones  String
-  teamSize    String
-  teamDesc    String
+  milestones  String?
+  teamSize    String?
+  teamDesc    String?
   website     String?
   linkedin    String?
   twitter     String?
   otherSocial String?
-  pitch       String
+  pitch       String?
   video       String?
-  author      Founder       @relation(fields: [founderId], references: [id], onDelete: Cascade)
-  founderId    String    @unique
+  founder     Founder       @relation(fields: [founderId], references: [id], onDelete: Cascade)
+  founderId   String   
   likedBy     Investor[] @relation()
-  
 }

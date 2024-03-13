@@ -115,7 +115,7 @@ export async function TopDashNav({title}: TitleProp) {
                 
             </div>
             <div className="flex items-center gap-2 ">
-              <UserAvatar initials={init[0]} image={session?.user.image as string} name={"Change display name"} email={session?.user.email as string} id={''}/>
+              <UserAvatar initials={init[0]} image={session?.user.image } name={"Change display name"} email={session?.user.email } id={''}/>
             </div>
         </div>
       </div>

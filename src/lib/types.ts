@@ -2,7 +2,7 @@ export interface StartupProps {
     id: string  
     name: string
     logo: string
-    founded: number
+    founded: Date
     industry: string
     tagline: string
     lookingFor: string | null | undefined
@@ -26,7 +26,7 @@ export interface StartupCardType{
     id: string
     name: string
     logo: string
-    founded: string
+    founded: Date
     industry: string
     tagline: string
     lookingFor: string

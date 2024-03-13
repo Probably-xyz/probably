@@ -5,8 +5,9 @@ import { TopDashNav } from '~/_components/nav'
 const CreateStartup = () => {
   return (
     <>
-        <TopDashNav title="Create new startup"/>
+        <TopDashNav title="New post"/>
         <GeneralStartupForm/>
+       
     </>
   )
 }

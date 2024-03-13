@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
@@ -46,24 +49,25 @@ export const generalSchema = z.object({
   tagline: z.string().max(70),
   summary: z.string(),
 });
-
 export function GeneralFounderForm() {
   // 1. Define your form.
+  const currentProf = api.founder.getProfile.useQuery()
+
   const form = useForm<z.infer<typeof generalSchema>>({
     resolver: zodResolver(generalSchema),
     defaultValues: {
-      name: "",
-      title: "",
-      status: undefined,
-      tagline: "",
-      summary: "",
+      name: currentProf.data?.name!,
+      title: currentProf.data?.title!,
+      status: currentProf.data?.status!,
+      tagline: currentProf.data?.shortDesc!,
+      summary: currentProf.data?.summary!,
     },
   });
 
+    const revalidate = 1000
   const updateProfile = api.founder.updateProfile.useMutation({
     onSuccess: () => {
       toast.success("Proflile Updated!")
-      window.location.reload()
     }
   });
   
@@ -382,9 +386,17 @@ const generalStartup = z.object({
   stage: z.string(),
   teamSize: z.string(),
   teamDesc: z.string().min(50),
+  // website: z.string().optional(),
+  // linkedin: z.string().optional(),
+  // twitter: z.string().optional(),
+  // fundGoal: z.string().optional(),
+  // video: z.string().optional(),
+  // other: z.string().optional()
 });
 
 export function GeneralStartupForm() {
+  const currentProf = api.founder.getProfile.useQuery()
+  const id = currentProf.data?.id!
   const form = useForm<z.infer<typeof generalStartup>>({
     resolver: zodResolver(generalStartup),
     defaultValues: {
@@ -407,7 +419,21 @@ export function GeneralStartupForm() {
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof generalStartup>) {
   
-    createNew.mutate(values)
+    createNew.mutate({
+      name: values.name,
+      tagline: values.tagline,
+      development: values.development,
+      industry: values.industry,
+      description: values.description,
+      founded: values.founded,
+      region: values.region,
+      lookingFor: values.lookingFor,
+      milestones: values.milestones,
+      stage: values.stage,
+      teamSize: values.teamSize,
+      teamDesc: values.teamDesc,
+      id: currentProf.data?.id!
+    })
 
   }
   // 2. Define a submit handler.
@@ -459,78 +485,78 @@ export function GeneralStartupForm() {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="web3">
+                        <SelectItem value="WEB3">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             Web3{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="ar/vr">
+                        <SelectItem value="AR/VR">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             AR/VR{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="health">
+                        <SelectItem value="HealthTech">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             HealthTech{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="fintech">
+                        <SelectItem value="FinTech">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             FinTech{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="insur">
+                        <SelectItem value="InsurTech">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             InsurTech{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="prop">
+                        <SelectItem value="PropTech">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             PropTech{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="financials">
+                        <SelectItem value="Finance">
                           <Badge className="bg-prblyYellow text-neutral-700 hover:bg-prblyYellow">
                             {" "}
                             Financial Services{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="ai">
+                        <SelectItem value="AI">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             AI{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="cybersec">
+                        <SelectItem value="CyberSec">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             Cyber Security{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="mobility">
+                        <SelectItem value="Mobility">
                           <Badge className="bg-prblyYellow text-neutral-700 hover:bg-prblyYellow">
                             {" "}
                             Mobility{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="ecom">
+                        <SelectItem value="E-com">
                           <Badge className="bg-prblyPrimary hover:bg-prblyPrimary">
                             {" "}
                             E-Commerce{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="space">
+                        <SelectItem value="Space">
                           <Badge className="bg-prblyYellow text-neutral-700 hover:bg-prblyYellow">
                             Space{" "}
                           </Badge>
                         </SelectItem>
-                        <SelectItem value="other">
+                        <SelectItem value="Other">
                           <Badge variant="outline"> Other </Badge>
                         </SelectItem>
                       </SelectContent>
