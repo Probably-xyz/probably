@@ -1,32 +1,30 @@
 /* eslint-disable react/jsx-no-undef */
-import { redirect } from "next/navigation";
-import { StartupCard } from "~/_components/cards";
+import { Favorites, MyStartups, RecentActivity } from "~/_components/home";
 import { TopDashNav } from "~/_components/nav";
 import { getServerAuthSession } from "~/server/auth";
 
-export default async function SignInButton ()  {
-  const session = await getServerAuthSession()
+export default async function Dash() {
+  const session = await getServerAuthSession();
 
-  if (!session){
-      redirect("/auth/login")
-  }
-  
-  if(session){
+  if (session?.user.role === "founder") {
     return (
       <>
-        <TopDashNav title="Gallery"/>
-        <div className="flex space-x-8">
-            <StartupCard/>
-            <StartupCard/>
-            <StartupCard/>
-          </div>
-          <div className="flex space-x-8">
-            <StartupCard/>
-            <StartupCard/>
-            <StartupCard/>
-          </div>
+        <TopDashNav title="Home" />
+        <div className="container flex flex-col space-y-8">
+          <MyStartups />
+          <RecentActivity />
+        </div>
       </>
     );
   }
-};
-
+  if (session?.user.role === "investor") {
+    return (
+      <>
+        <TopDashNav title="Home" />
+        <div className="container">
+          <Favorites />
+        </div>
+      </>
+    );
+  }
+}

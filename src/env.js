@@ -37,6 +37,7 @@ export const env = createEnv({
     SMTP_HOST: z.string(),
     SMTP_PORT: z.number(),
     EMAIL_FROM: z.string(),
+    SUPA_PRBLY_ICON: z.string(),
     
   },
 
@@ -67,6 +68,7 @@ export const env = createEnv({
     SMTP_HOST: process.env.SMTP_HOST,
     SMTP_PORT: Number(process.env.SMTP_PORT),
     EMAIL_FROM: process.env.EMAIL_FROM,
+    SUPA_PRBLY_ICON: process.env.SUPA_PRBLY_ICON
   },
   
   /**

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import {
   getServerSession,
@@ -10,6 +12,8 @@ import GoogleProvider from "next-auth/providers/google"
 import EmailProvider from "next-auth/providers/email";
 import { env } from "~/env";
 import { db } from "~/server/db";
+import { sendEmail } from "~/lib/emails";
+import MagicLinkEmail from "~/lib/emails/login-link";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -22,14 +26,16 @@ declare module "next-auth" {
     user: {
       id: string;
       // ...other properties
-      // role: UserRole;
+      role: string;
     } & DefaultSession["user"];
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+   id: string,
+   email: string, 
+   role: string,
+   image: string,
+  }
 }
 
 /**
@@ -44,6 +50,7 @@ export const authOptions: NextAuthOptions = {
       user: {
         ...session.user,
         id: user.id,
+        role: user.role
       },
     }),
   },
@@ -69,6 +76,19 @@ export const authOptions: NextAuthOptions = {
         },
       },
       from: env.EMAIL_FROM,
+      sendVerificationRequest({ identifier, url }) {
+        if (process.env.NODE_ENV === "development") {
+          console.log(`Login link: ${url}`);
+          console.log(`HELLO HELLO: ${identifier}`)
+          return;
+        } else {
+          sendEmail({
+            email: identifier,
+            subject: `Your Prbly Login Link`,
+            react: MagicLinkEmail({ magicLink: url, email: identifier }),
+          });
+        }
+      },
     })
     /**
      * ...add more providers here.
@@ -81,8 +101,11 @@ export const authOptions: NextAuthOptions = {
      */
   ],
   pages: {
-    error: "auth/login"
-  }
+    error: "/auth/login",
+    newUser: "/auth/welcome"
+  },
+
+  
 };
 
 /**

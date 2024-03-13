@@ -13,19 +13,17 @@ import {
     Text,
   } from '@react-email/components';
   import * as React from 'react';
+import { env } from '~/env';
   
   interface MagicLinkEmailProps {
     magicLink?: string;
+    email?: string
   }
   
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000';
-  
-    console.log(baseUrl)
+  const prblyIcon = env.SUPA_PRBLY_ICON
 
   export const MagicLinkEmail = ({
-    magicLink = 'https://raycast.com',
+    magicLink , email
   }: MagicLinkEmailProps) => (
     <Html>
       <Head />
@@ -34,7 +32,7 @@ import {
         <Container style={container}>
           <Link href="https://prbly.xyz">
           <Img
-            src={`${baseUrl}/5.png`}
+            src={prblyIcon}
             width={58}
             height={58}
             alt="Probably"
@@ -56,7 +54,7 @@ import {
           </Text>
           <Hr style={hr} />
           <Img
-            src={`${baseUrl}/5.png`}
+            src={prblyIcon}
             width={38}
             height={38}
             style={{
@@ -66,9 +64,9 @@ import {
             }}
           />
           <Text style={footer}>  &copy; 2024 Probably</Text>
-          {/* <Text style={footer}>
-            2093 Philadelphia Pike #3222, Claymont, DE 19703
-          </Text> */}
+          <Text style={footer}>
+            {email}
+          </Text>
         </Container>
       </Body>
     </Html>
