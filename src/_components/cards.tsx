@@ -111,7 +111,6 @@ export const StartupCard = ({name, logo, lookingFor, tagline, id, stage, industr
 }
 
 const date = formatDate(founded)
-  console.log(date)
   const link = `/dashboard/gallery/` + id
   return (
     <Link href={link}>

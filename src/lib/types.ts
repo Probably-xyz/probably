@@ -24,13 +24,13 @@ export interface StartupProps {
 
 export interface StartupCardType{
     id: string
-    name: string
+    name: string | null
     logo: string
     founded: Date
-    industry: string
-    tagline: string
-    lookingFor: string
-    region: string
-    stage: string
-    fundGoal: string
+    industry: string | null
+    tagline: string | null
+    lookingFor: string | null
+    region: string | null
+    stage: string | null
+    fundGoal: string | null
 }

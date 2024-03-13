@@ -19,14 +19,14 @@ export function StartupGrid(){
                     <StartupCard
                         key={startup.id}
                         name={startup.name}
-                        logo={startup.logo}
+                        logo={startup.logo!}
                         tagline={startup.tagline}
                         id={startup.id}
                         industry={startup.industry}
                         stage={startup.stage}
                         fundGoal={startup.fundGoal as string}
                         lookingFor={startup.lookingFor}
-                        founded={startup.founded} 
+                        founded={startup.founded!} 
                         region={startup.region}
                         />
                 ))}
@@ -46,14 +46,14 @@ export function FavGrid(){
                     <StartupCard
                         key={startup.id}
                         name={startup.name}
-                        logo={startup.logo}
+                        logo={startup.logo!}
                         tagline={startup.tagline}
                         id={startup.id}
                         industry={startup.industry}
                         stage={startup.stage}
                         fundGoal={startup.fundGoal as string}
                         lookingFor={startup.lookingFor}
-                        founded={startup.founded} 
+                        founded={startup.founded!} 
                         region={startup.region}
                         />
                 ))}    
@@ -75,14 +75,14 @@ export function MyGrid(){
                     <StartupCard
                         key={post.id}
                         name={post.name}
-                        logo={post.logo}
+                        logo={post.logo!}
                         tagline={post.tagline}
                         id={post.id}
                         industry={post.industry}
                         stage={post.stage}
                         fundGoal={post.fundGoal as string}
                         lookingFor={post.lookingFor}
-                        founded={post.founded} 
+                        founded={post.founded!} 
                         region={post.region}
                         />
             ))} 

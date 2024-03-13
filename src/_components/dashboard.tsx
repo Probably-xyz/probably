@@ -134,9 +134,9 @@ export function SideBar({role}: any) {
 
 interface UserDetails {
   initials?: string,
-  image?: string,
+  image?: string | undefined,
   name?: string,
-  email?: string,
+  email?: string | null | undefined,
   id?: string
 }
 
