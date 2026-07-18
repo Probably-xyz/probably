@@ -45,8 +45,8 @@ dependencies:
     specifier: 0.0.14
     version: 0.0.14(@types/react@18.2.37)(react@18.2.0)
   '@t3-oss/env-nextjs':
-    specifier: ^0.7.1
-    version: 0.7.1(typescript@5.1.6)(zod@3.22.4)
+    specifier: ^0.13.0
+    version: 0.13.0(arktype@2.2.3)(typescript@5.1.6)(zod@3.22.4)
   '@tanstack/react-query':
     specifier: ^4.36.1
     version: 4.36.1(react-dom@18.2.0)(react@18.2.0)
@@ -179,6 +179,16 @@ packages:
   /@alloc/quick-lru@5.2.0:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
+
+  /@ark/schema@0.56.2:
+    resolution: {integrity: sha512-Qx4D2JFbBWpntiHZaTv7bGG4H/M2rigiknezKg/WVyDSaLdE4YCcWAOoFB7pjjDqHbbV2OqRfntm1nnXvwMexg==}
+    dependencies:
+      '@ark/util': 0.56.2
+    dev: false
+
+  /@ark/util@0.56.2:
+    resolution: {integrity: sha512-9kU2sUE38FZEGG7l3hamYMBieLYEJh2L1mrYD2eXpT+78EnQSV1bhjxJhnxGBMSTbtwpBSDNSK+K60WvaI/DTQ==}
+    dev: false
 
   /@babel/code-frame@7.23.5:
     resolution: {integrity: sha512-CgH3s1a96LipHCmSUmYFPwY7MNx8C3avkq7i4Wl3cfa662ldtUe4VM1TPXX70pfmrlWTb6jLqTYrZyT2ZTJBgA==}
@@ -4275,31 +4285,45 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: false
 
-  /@t3-oss/env-core@0.7.1(typescript@5.1.6)(zod@3.22.4):
-    resolution: {integrity: sha512-3+SQt39OlmSaRLqYVFv8uRm1BpFepM5TIiMytRqO9cjH+wB77o6BIJdeyM5h5U4qLBMEzOJWCY4MBaU/rLwbYw==}
+  /@t3-oss/env-core@0.13.0(arktype@2.2.3)(typescript@5.1.6)(zod@3.22.4):
+    resolution: {integrity: sha512-bV7LAvwoeyigLXyjBnlgbKb8S9l+E29uSzWtU1GJYuKMQ6qF9dvFbjakkgoxR+tXFoxg7aGbg8DdEfwNihvF8Q==}
     peerDependencies:
-      typescript: '>=4.7.2'
-      zod: ^3.0.0
+      arktype: ^2.1.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
     peerDependenciesMeta:
       typescript:
         optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
     dependencies:
+      arktype: 2.2.3
       typescript: 5.1.6
       zod: 3.22.4
     dev: false
 
-  /@t3-oss/env-nextjs@0.7.1(typescript@5.1.6)(zod@3.22.4):
-    resolution: {integrity: sha512-tQDbNLGCOvKGi+JoGuJ/CJInJI7/kLWJqtgGppAKS7ZFLdVOqZYR/uRjxlXOWPnxmUKF8VswOAsq7fXUpNZDhA==}
+  /@t3-oss/env-nextjs@0.13.0(arktype@2.2.3)(typescript@5.1.6)(zod@3.22.4):
+    resolution: {integrity: sha512-l+3H7w1rezfPhnfi5DPKeoLaMhsG8Os2WtoSA1Sq/+X+szccidazNmTAGKjp4v03IuUz4bsxYvU9DzQAX7atkg==}
     peerDependencies:
-      typescript: '>=4.7.2'
-      zod: ^3.0.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
     peerDependenciesMeta:
       typescript:
         optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
     dependencies:
-      '@t3-oss/env-core': 0.7.1(typescript@5.1.6)(zod@3.22.4)
+      '@t3-oss/env-core': 0.13.0(arktype@2.2.3)(typescript@5.1.6)(zod@3.22.4)
       typescript: 5.1.6
       zod: 3.22.4
+    transitivePeerDependencies:
+      - arktype
     dev: false
 
   /@tanstack/query-core@4.36.1:
@@ -4817,6 +4841,20 @@ packages:
     dependencies:
       dequal: 2.0.3
     dev: true
+
+  /arkregex@0.0.8:
+    resolution: {integrity: sha512-PJcx6G1kQTgLKPUbeYlYecDRaKq15AMSGVajlKFYWlPeJRQL+j3dKE6tyMs40HZ99djS1l9Vhl3ezAHy9JBIqQ==}
+    dependencies:
+      '@ark/util': 0.56.2
+    dev: false
+
+  /arktype@2.2.3:
+    resolution: {integrity: sha512-7W+0RLTUNJiBFIIZXwOQxSR8Z273IAd6IvqBeG9+gHnQKFsIx2C0iOtGTmMrPnlX4qLXyc5+ll7A0BIj9WrbTg==}
+    dependencies:
+      '@ark/schema': 0.56.2
+      '@ark/util': 0.56.2
+      arkregex: 0.0.8
+    dev: false
 
   /array-buffer-byte-length@1.0.0:
     resolution: {integrity: sha512-LPuwb2P+NrQw3XhxGc36+XSvuBPopovXYTR9Ew++Du9Yb/bx5AzBfrIsBoj0EZUifjQU+sHL21sseZ3jerWO/A==}
